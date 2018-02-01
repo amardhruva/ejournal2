@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls.conf import path
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
+    path('accounts/password_reset/done/', auth_views.password_reset_done, name='password_reset_done'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('author/', include('paperauthor.urls')),
