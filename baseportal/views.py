@@ -21,6 +21,7 @@ class TrackView(View):
 
             except (ValidationError, ObjectDoesNotExist) as e:
                 context["showerror"]=True
+                paper=None
 
             if paper is not None:
                 context["showtrack"]=True
