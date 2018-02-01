@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views.generic.base import View
 from paperauthor.models import Paper
@@ -68,6 +68,8 @@ class ReviewPaperView(IsReviewerMixin, LoginRequiredMixin, View):
         paper=Paper.objects.get(slug=paperslug)
         if paper.reviewer != request.user:
             raise PermissionDenied
+        if paper.is_reviewed():
+            raise Http404
         form=ReviewPaperForm()
         return render(request, "paperreviewer/reviewpaper.html",
                        {"paper":paper, "form":form})
@@ -75,6 +77,8 @@ class ReviewPaperView(IsReviewerMixin, LoginRequiredMixin, View):
         paper=Paper.objects.get(slug=paperslug)
         if paper.reviewer != request.user:
             raise PermissionDenied
+        if paper.is_reviewed():
+            raise Http404
         form=ReviewPaperForm(request.POST)
         if form.is_valid():
             review=form.save(commit=False)
