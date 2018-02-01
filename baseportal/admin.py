@@ -21,4 +21,6 @@ class MyUserAdmin(UserAdmin):
         queryset.update(is_active=False)
     deactivate_user.short_description = "Deactivate selected Users"
 
-admin.site.register(PublishedJournal)
+@admin.register(PublishedJournal)
+class PublishedJournalAdmin(admin.ModelAdmin):
+    list_display = ('name', 'published_date',)
