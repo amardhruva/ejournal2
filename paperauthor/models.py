@@ -47,5 +47,7 @@ class Paper(models.Model):
     track_id = models.UUIDField(unique=True, default=uuid.uuid4)
     def review_status(self):
         return self.paperreview.get_review_status_display()
+    def is_reviewed(self):
+        return hasattr(self, "paperreview")
     def __str__(self):
         return self.title

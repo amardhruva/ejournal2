@@ -24,10 +24,15 @@ class TrackView(View):
 
             if paper is not None:
                 context["showtrack"]=True
-                context["trackstatus"]=0
                 context["paper"]=paper
-                print("DEBUG")
-                print(paper)
+                if paper.reviewer is None:
+                    context["trackstatus"]=0
+                elif paper.is_reviewed() is False:
+                    context["trackstatus"]=1
+                else:
+                    context["trackstatus"]=2
+
+
 
 
         return render(request, "baseportal/track.html", context)

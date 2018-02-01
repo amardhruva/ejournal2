@@ -145,28 +145,26 @@
                         {% if trackstatus >= 0 %}
                           <li class="timelineStage">
                               <span class="stageDetails">
-                                  Submitted
+                                  Submitted for Review
                               </span>
                           </li>
                         {% endif %}
                         {% if trackstatus >= 1 %}
                           <li class="timelineStage">
                               <span class="stageDetails">
-                                  Description of point 2
+                                  Reviewer Assigned
                               </span>
                           </li>
                         {% endif %}
                         {% if trackstatus >= 2 %}
                           <li class="timelineStage">
                               <span class="stageDetails">
-                                  Description of point 2
+                                  Review Complete
                               </span>
                           </li>
-                        {% endif %}
-                        {% if trackstatus >= 2 %}
                           <li class="timelineStage">
                               <span class="stageDetails">
-                                  Description of point 3
+                                  {{ paper.review_status }}
                               </span>
                           </li>
                         {% endif %}

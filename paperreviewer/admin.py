@@ -5,4 +5,5 @@ from paperreviewer.models import PaperReview, PaperReviewRequest
 @admin.register(PaperReview)
 class PaperReviewAdmin(admin.ModelAdmin):
     list_display=["paper","review_status"]
+    search_fields=["paper__title"]
 admin.site.register(PaperReviewRequest)
