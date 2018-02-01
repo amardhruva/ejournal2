@@ -103,3 +103,4 @@ ENV/
 # django
 db.sqlite3
 protected/*
+media/*

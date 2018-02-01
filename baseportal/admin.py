@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
+from baseportal.models import PublishedJournal
 # Register your models here.
 
 admin.site.site_header = 'Ejournal administration'
@@ -19,3 +20,5 @@ class MyUserAdmin(UserAdmin):
     def deactivate_user(self, request, queryset):
         queryset.update(is_active=False)
     deactivate_user.short_description = "Deactivate selected Users"
+
+admin.site.register(PublishedJournal)
