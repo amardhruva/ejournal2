@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     'baseportal',
     'accounts',
     'sendfile',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +134,6 @@ SENDFILE_BACKEND = 'sendfile.backends.development'
 #SENDFILE_BACKEND = 'sendfile.backends.nginx'
 SENDFILE_ROOT = os.path.join(BASE_DIR, 'protected')
 SENDFILE_URL = '/protected'
+
+# Dev Email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
