@@ -39,3 +39,5 @@ class PaperReview(models.Model):
         )
     comments_to_author=models.TextField(blank=True, null=True, default=None)
     comments_to_editor=models.TextField(blank=True, null=True, default=None)
+    def __str__(self):
+        return self.paper.title

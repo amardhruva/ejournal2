@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -43,6 +44,7 @@ class Paper(models.Model):
                                  limit_choices_to={'groups__name': "reviewer"},
                                  related_name="reviewpaper")
     slug=AutoSlugField(populate_from="title", unique=True)
+    track_id = models.UUIDField(unique=True, default=uuid.uuid4)
     def review_status(self):
         return self.paperreview.get_review_status_display()
     def __str__(self):
