@@ -1,0 +1,55 @@
+/* CODED BY ALFAF SHAIKH */
+
+/* START - RESPONSIVE*/
+@media screen and (min-width: 737px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        min-height: 100%;
+        grid-gap: 20px;
+        grid-template-columns: 2.4fr 1fr;
+        grid-template-areas: 
+        "topNavigation topNavigation"
+        "adminBox adminBox"
+        "slideshow slideshow"
+        "sliderHeadingOne mcounter"
+        "sliderOne mcounter"
+        "sliderHeadingTwo sliderHeadingTwo"
+        "sliderTwo sliderTwo"
+        "sliderHeadingThree sliderHeadingThree"
+        "sliderThree sliderThree"
+        "sliderHeadingFour sliderHeadingFour"
+        "sliderFour sliderFour"
+        "footer-distributed footer-distributed"
+    }
+}
+
+@media screen and (max-width: 736px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        grid-template-columns: 5fr 2fr;
+        grid-template-areas: 
+        "topNavigation topNavigation"
+        "mobileSearchBox mobileSearchBox"
+        "mobileTopNavigation mobileTopNavigation"
+        "adminBox adminBox"
+        "slideshow slideshow"
+        "mcounter mcounter"
+        "sliderHeadingOne mcounter"
+        "sliderOne mcounter"
+        "sliderHeadingTwo sliderHeadingTwo"
+        "sliderTwo sliderTwo"
+        "sliderHeadingThree sliderHeadingThree"
+        "sliderThree sliderThree"
+        "sliderHeadingFour sliderHeadingFour"
+        "sliderFour sliderFour"
+        "footer-distributed footer-distributed"
+    }
+    
+    .leftNavigation, .leftNavigationLogo, .leftNavigationMenuOptions{
+        height: 0px;
+        display: none; 
+    }
+}
+
+/* END - RESPONSIVE*/

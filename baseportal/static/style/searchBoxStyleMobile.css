@@ -1,0 +1,48 @@
+/* CODED BY ALFAF SHAIKH */
+
+.mobileSearchBox{
+    grid-area: mobileSearchBox;
+    display: grid; 
+    background-color: #0054a6;
+    margin-top: -22px;
+    z-index: 8;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: 
+        "mobileSearchInput mobileSearchButton";
+}
+
+.mobileSearchButton{
+    grid-area: mobileSearchButton;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    height: 45px;
+    background-color: #fd033a;
+    font-weight: bold;  
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: Roboto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.mobileSearchInput{
+    grid-area: mobileSearchInput;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Roboto;
+}
+
+.mobileSearchIcon{
+    width: 30px;
+    padding: 9px;
+    text-align: center;
+}
+
+@media screen and (min-width: 737px){    
+    .mobileSearchBox{
+        height: 0px;
+        display: none;
+    }
+}

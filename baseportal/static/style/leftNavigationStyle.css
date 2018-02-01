@@ -1,0 +1,64 @@
+/* CODED BY ALFAF SHAIKH */
+
+@import url("../fonts/Transformers_Movie.ttf");
+@font-face {
+    font-family:"fantasy";
+    src: url("../fonts/Transformers_Movie.ttf") format("truetype");
+}
+
+.leftNavigation{
+    grid-area: leftNavigation;
+    display: grid;
+    grid-template-rows: 150px 100px 1fr;
+    background: #00aeef;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: ;
+    width: 100%;
+    height : 100%;
+    z-index: 10;
+    grid-template-areas: 
+        "leftNavigationLogo"
+        "searchBox"
+        "leftNavigationMenuOptions"
+}
+
+.leftNavigation .leftNavigationLogo{
+    padding: 20px;
+}
+
+.leftNavigationLogo{
+    grid-area: leftNavigationLogo;
+}
+
+.leftNavigationMenuOptions{
+    display: grid;
+    grid-area: leftNavigationMenuOptions;
+    list-style-type: none;
+    height: 0px; /*height Reset of each option*/
+    grid-gap: 4px; 
+}
+
+.leftNavigationMenuOptions li{
+    background: #7accc8;
+    padding-left: 15px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    border-right: solid 5px white;
+    font-size: 1.35em;
+    font-size: 1.4vw;
+    font-family:fantasy;
+    /* font-weight: bolder; */
+    color: #FFFFFF;
+}
+
+.leftNavigationMenuOptions li:hover{
+    border-right: solid 8px white;
+    background: #fd033a;
+}
+
+.leftNavEmojis img, .topResponsiveNavEmojis img{
+    font-family: "Social Shapes";
+    font-size: 2e;
+    padding-right: 10px;
+    width: 1.7vw;
+}

@@ -1,0 +1,58 @@
+/* CODED BY ALFAF SHAIKH */
+
+.mobileTopNavigation{
+    grid-area: mobileTopNavigation;
+    background: #0054a6;
+    width: 100%;
+    height: 40px;
+    visibility: visible;
+    margin-top: -22px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 7;
+    height: 5.9vw;
+    border-bottom: solid 2.5px white;
+}
+
+.mobileTopNavigationMenu{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    list-style-type: none; 
+}
+
+.mobileTopNavigationMenu li{
+    padding: 1.3vw;
+    text-align: center;
+    cursor: pointer;
+    font-family: roboto;
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 2.2vw;
+}
+
+.mobileTopNavigationMenu li:hover{
+    border-bottom: solid 3px white;
+    background: #fd033a;
+}
+
+.topResponsiveNavEmojis{
+    font-family: "Social Shapes";
+    font-size: 3.4vw;
+    padding-right: 5px;
+}
+
+@media screen and (min-width: 737px){    
+    .mobileTopNavigation{
+        height: 0px;
+        display: none;
+    }
+    
+    .mobileTopNavigationMenu{
+        height: 0px;
+        display: none;
+    }
+    
+    .topNavigation{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+

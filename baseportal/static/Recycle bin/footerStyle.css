@@ -1,0 +1,13 @@
+/* CODED BY ALFAF SHAIKH */
+.footer{
+    grid-area: footer;
+    background: #0054a6;
+    color: #FFFFFF;
+    height: 50px;
+    text-align: center;
+    padding: 20px;
+    position: bottom;
+    grid-row-start: 13 ;
+    grid-row-end: 14;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

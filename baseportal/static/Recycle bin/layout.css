@@ -1,0 +1,81 @@
+/* CODED BY ALFAF SHAIKH */
+.body{
+    display: grid;
+    background: #e1e1e1;
+    grid-template-columns: 0.8fr 4.5fr;
+    grid-template-areas: 
+    "leftNavigation mainContentBox"
+}
+
+@media screen and (min-width: 737px){
+    .body{
+        display: grid;
+        background: #e1e1e1;
+        grid-template-columns: 0.8fr 4.5fr;
+        grid-template-areas: 
+        "leftNavigation mainContentBox"
+    }
+    
+    .leftNavigation{
+        grid-area: leftNavigation;
+        display: grid;
+        height : 950px;
+    }
+    
+    .mobileTopNavigation{
+        height: 0px;
+        display: none;
+    }
+    
+    .mobileTopNavigationMenu{
+        height: 0px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 736px){
+    .body{
+        display: grid;
+        background: #e1e1e1;
+        grid-template-columns: 4.5fr;
+        grid-template-areas: 
+        "mainContentBox"
+    }
+    
+    .leftNavigation{
+        grid-area: leftNavigation;
+        display: grid;
+        height: 0px;
+    }
+    
+    .leftNavigationMenuOptions{
+        height: 0px;
+        display: none;
+    }
+    
+    .leftNavigationLogo{
+        height: 0px;
+        display: none;
+    }
+    
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 5fr 2fr;
+        grid-template-areas: 
+        "topNavigation topNavigation"
+        "mobileTopNavigation mobileTopNavigation"
+        "slideshow slideshow"
+        "newsFeed mcounter"
+        "sliderHeadingOne sliderHeadingOne"
+        "sliderOne sliderOne"
+        "sliderHeadingTwo sliderHeadingTwo"
+        "sliderTwo sliderTwo"
+        "sliderHeadingThree sliderHeadingThree"
+        "sliderThree sliderThree"
+        "sliderHeadingFour sliderHeadingFour"
+        "sliderFour sliderFour"
+        "footer footer"
+    }
+}

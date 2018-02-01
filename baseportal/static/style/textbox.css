@@ -1,0 +1,27 @@
+.textboxOne {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    background-image: none;
+    width: 24vw;
+    max-width: 30vw;
+}
+
+.textboxOne:focus {
+    outline-color: #54B4AD;
+}
+
+.textboxOne[type="textarea"] {
+    height: 4vw;
+}
+
+
+.submitCategory{
+    width: 25.1vw;
+    max-width: 31vw;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #CCC;
+    background-image: none;
+    height: 2.2vw;
+}

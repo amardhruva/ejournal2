@@ -1,0 +1,60 @@
+/* CODED BY ALFAF SHAIKH */
+a{
+    color: none;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family:"fantasy";
+    src: url("../fonts/Transformers_Movie.ttf") format("truetype");
+}
+
+.leftNavigationLogo img{
+    width: 10vw;   
+}
+
+.footerLogo{
+    width: 15vw;
+}
+
+@media screen and (min-width: 737px){
+    .body{
+        display: grid;
+        width: 100%;
+        background: #e1e1e1;
+        grid-template-columns: 0.8fr 4.5fr;
+        grid-template-areas: 
+        "leftNavigation mainContentBox"
+    }
+    
+    .leftNavigation{
+        grid-area: leftNavigation;
+        display: grid;
+    }
+    
+    .mobileTopNavigation{
+        height: 0px;
+        display: none;
+    }
+    
+    .mobileTopNavigationMenu{
+        height: 0px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 736px){
+    .body{
+        display: grid;
+        width: 100%;
+        background: #e1e1e1;
+        grid-template-columns: 4.5fr;
+        grid-template-areas: 
+        "mainContentBox"
+    }
+    
+    .searchBox, .searchInput, .searchButton{
+        height: 0px;
+        display: none; 
+    }
+}

@@ -1,0 +1,66 @@
+/* CODED BY ALFAF SHAIKH */
+
+/* START - RESPONSIVE*/
+@media screen and (min-width: 737px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        min-height: 100%;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "registerContentBox"
+        "footer-distributed"
+    }
+}
+
+@media screen and (max-width: 736px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "mobileSearchBox"
+        "mobileTopNavigation"
+        "registerContentBox"
+        "footer-distributed"
+    }
+    
+    .leftNavigation, .leftNavigationLogo, .leftNavigationMenuOptions{
+        height: 0px;
+        display: none; 
+    }
+}
+
+.registerContentBox{
+    grid-area: registerContentBox;
+    margin: 30px;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.registerContentBoxTitle{
+    font-size: 2.6em;
+    font-family:fantasy;
+    font-weight: lighter;
+    padding-bottom: 15px;
+}
+
+.registerContentBoxLabel{
+    font-size: 1em;
+    font-family:fantasy;
+    font-weight: lighter;
+    text-align: right;
+}
+
+.registerData{
+    margin: 20px;
+}
+
+.button{
+    margin: 10px;
+}

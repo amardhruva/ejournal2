@@ -1,0 +1,448 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- CODED BY ALFAF SHAIKH -->
+<html>
+    <head>
+
+        <!-- [if lt IE 9]>
+        <script type="text/javascript">
+            consoloe.log("does not support");
+            windows.location.href="browserSupport.html";
+        </script>
+        <!--[endif]-->
+
+        <!-- START - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        <script type="text/javascript" src="{% static 'scripts/browserSupport.js' %}"></script>
+        <!-- END - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+
+        <!-- START - INITIAL INCLUDES -->
+
+        <!-- START - DECLARE META TAGS -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- END - DECLARE META TAGS -->
+
+        <!-- START - IMPORT STYLESHEETS -->
+        <link rel="icon" href="{% static 'images/nitteUniversityIconBlue.ico' %}">
+        <link rel="stylesheet" href="{% static 'style/layoutReset.css' %}">
+        <link rel="stylesheet" href="{% static 'style/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'style/leftNavigationStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/topNavigationStyleMobile.css' %}">
+        <link rel="stylesheet" href="{% static 'style/topNavigationStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/slideshowStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/mcounter.css' %}">
+        <link rel="stylesheet" href="{% static 'style/newsFeedStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/indexContentBoxStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/horizontalSlider.css' %}">
+        <link rel="stylesheet" href="{% static 'style/footerStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/adminBoxStyle.css' %}">
+	    <link rel="stylesheet" href="{% static 'style/fontAwesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'style/searchBoxStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/searchBoxStyleMobile.css' %}">
+        <link rel="stylesheet" href="{% static 'style/buttons.css' %}">
+        <link rel="stylesheet" href="{% static 'style/textbox.css' %}">
+        <!-- END - IMPORT STYLESHEETS -->
+
+        <!-- START - IMPORT SCRIPTS -->
+        <script type="text/javascript" src="{% static 'scripts/adminBox.js' %}"></script>
+        <script type="text/javascript" src="{% static 'scripts/dragscroll.js' %}"></script>
+        <script type="text/javascript" src="{% static 'scripts/slideshow.js' %}"></script>
+        <script src="{% static 'scripts/vendor/jquery-1.10.2.min.js' %}"></script>
+        <!--<script src="{% static 'scripts/horizontalSlider.js' %}"></script> -->
+        <!-- END - INITIAL INCLUDES -->
+
+        <!-- START - TITLE -->
+        <title> E-Journal | Home </title>
+        <!-- END - TITLE -->
+
+    </head>
+    <body class="body" onload="showSlides(1);">
+
+        <!-- START - LEFT SIDE NAVIGATION BAR -->
+        <div class="leftNavigation">
+            <!-- START - LOGO -->
+            <div class="leftNavigationLogo" title="E-Journal">
+                <img src="{% static 'images/nitteUniversity.png' %}">
+            </div>
+            <!-- END - LOGO -->
+
+            <!-- START - SEARCH BOX -->
+            <div class="searchBox">
+                <div class='searchInput'>
+                    <input type='search' placeholder='What you looking for?'>
+                </div>
+                <div class='searchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="searchIcon"></div>
+            </div>
+            <!-- END - SEARCH BOX -->
+
+            <!-- START - MENU OPTIONS -->
+            <ul class="leftNavigationMenuOptions">
+                <a href="{% url 'baseportal:homepage' %}"><li class="leftOptionOne" style="border-right: solid 8px white;background: #fd033a;"><span class="leftNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+
+                <a href="{% url 'accounts:register' %}"><li class="leftOptionTwo"><span class="leftNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
+
+                <a href="track.html"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+
+                <a href="{% url 'accounts:login' %}"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
+
+                <a href="aboutus.html"><li class="leftOptionFour"><span class="leftNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+            </ul>
+            <!-- END - MENU OPTIONS -->
+
+        </div>
+        <!-- END - LEFT SIDE NAVIGATION BAR -->
+
+        <!-- START - MAIN CONTENT BOX -->
+        <div class="mainContentBox">
+
+            <!-- START - TOP NAVIGATION BAR -->
+            <div class="topNavigation">
+
+                <!-- START - PATH BAR -->
+                <div class="topNavigationPath" title="Current Path">Ejournal &gt; Home</div>
+                <!-- END - PATH BAR -->
+
+                <!-- START - MENU BOX -->
+                <ul class="topNavigationMenu">
+                    <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
+                    <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
+                    <li class="topOptionThree" title="Admin"  onclick="toggleAdminBox();"><div class="topNavEmojis"><img src="{% static 'images/linkedin.png' %}"></div></li>
+                </ul>
+                <!-- END - MENU BOX -->
+
+            </div>
+
+            <!-- START - MOBILE MENU BOX -->
+            <div class="mobileTopNavigation">
+                <ul class="mobileTopNavigationMenu">
+                    <a href="index.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+
+                    <a href="register.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
+
+                    <a href="track.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+
+                    <a href="login.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
+
+                    <a href="aboutus.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+                </ul>
+            </div>
+            <!-- END - MOBILE MENU BOX -->
+
+            <!-- START - MOBILE SEARCH BOX -->
+            <div class="mobileSearchBox">
+                <div class='mobileSearchInput'>
+                    <input type='search' placeholder='What you looking for?'>
+                </div>
+                <div class='mobileSearchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="mobileSearchIcon"></div>
+            </div>
+            <!-- END - MOBILE SEARCH BOX-->
+
+            <!-- START - ADMIN BOX -->
+
+            <div class="adminBox">
+                <div class="adminBoxPic"><img src="{% static 'images/ff.png' %}"></div>
+                <div class="adminBoxSettings"><span><a href="settings.html">Settings</a></span></div>
+                <div class="adminBoxName"><span><input type="text" disabled value="Name" class="textboxOne"></span></div>
+                <div class="adminBoxEMail"><span><input type="email" disabled value="EMail" class="textboxOne"></span></div>
+                <div  class="adminBoxLogin"><a href="login.html"><input type="button" class="buttonTwo" value="Login"></a></div>
+                <div class="adminBoxSignUp"><a href="register.html"><input type="button" class="buttonTwo" value="Sign Up"></a></div>
+            </div>
+
+            <!-- END - ADMIN BOX-->
+
+            <!-- END - TOP NAVIGATION BAR -->
+
+            <!-- START - SLIDESHOW -->
+            <div class="slideshow">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                      <img src="images/slidePic1.jpeg" style="width:100%">
+                      <div class="text">No more books, Let's EBook</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                      <img src="images/slidePic2.jpeg" style="width:100%">
+                      <div class="text">Gain knowledge</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                      <img src="images/slidePic3.jpeg" style="width:100%">
+                      <div class="text">Switch to EBooks</div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+                <br>
+                <div style="text-align:center">
+                  <span class="dot" onclick="currentSlide(1)"></span>
+                  <span class="dot" onclick="currentSlide(2)"></span>
+                  <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <!-- END - SLIDESHOW -->
+
+            <!-- START - HORIZONTAL SLIDERS -->
+            <div class="sliderHeading sliderHeadingOne">RECENT JOURNALS</div>
+            <!-- START - SLIDER ONE -->
+            <ul class="sliderOne slider dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+
+                <!-- START - RIGHT AND LEFT SLIDE BUTTON
+                <span class="slider__nav slider__nav_left" onclick="goRightOne();"></span>
+				<span class="slider__nav slider__nav_next" onclick="goLeftOne();"></span>
+                 END - RIGHT AND LEFT SLIDE BUTTON -->
+
+            </ul>
+            <!-- END - SLIDER ONE -->
+
+            <!-- START - SLIDER TWO -->
+            <div class="sliderHeading sliderHeadingTwo">RECENT REVIEWS</div>
+            <ul class="sliderTwo slider sliderFull dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+            </ul>
+            <!-- END - SLIDER TWO -->
+
+            <!-- START - SLIDER THREE -->
+            <div class="sliderHeading sliderHeadingThree">RECENT TECHNICAL</div>
+            <ul class="sliderThree slider  sliderFull dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+            </ul>
+            <!-- END - SLIDER THREE -->
+            <div class="sliderHeading sliderHeadingFour">RECENT JOURNALS</div>
+            <ul class="sliderFour slider sliderFull dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+                <li class="card">
+                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
+                    <div>Name</div>
+                    <div>Author</div>
+                </li>
+            </ul>
+            <!-- START - SLIDER FOUR -->
+
+            <!-- END - SLIDER FOUR -->
+
+        <!-- END - HORIZONTAL  SLIDERS -->
+
+            <!-- START - NEWS FEED
+            <ul class="newsFeed">
+                <h1 class="newsFeedHeader" title="Latest News">NEWS FEED</h1>
+                <marquee direction="up" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">
+                    <a href="viewnews.html"><li>adsa</li></a>
+                    <a href="viewnews.html"><li>abcdefghijklmnpqrstuvwxyzabcdefghijklmnopaaaadfdfddfdfdfdppp
+                            abcdefghijklmnpqrstuvwxyzabcdefghijklmnop
+                            abcdefghijklmnpqrstuvwxyzabcdefghijkl....
+                            dfdfdfassssabcd
+                            sfdfdf
+                    sdf</li></a>
+                    <a href="viewnews.html"><li>adsa</li></a>
+                    <a href="viewnews.html"><li>adsa1</li></a>
+                    <a href="viewnews.html"><li>sdffds</li></a>
+                    <a href="viewnews.html"><li>sdffds</li></a>
+                    <a href="viewnews.html"><li>sdffds</li></a>
+                    <a href="viewnews.html"><li>sdffds</li></a>
+                </marquee>
+            </ul>
+            END - NEWS FEED -->
+
+            <!-- START - COUNTER -->
+            <ul class="mcounter">
+                <h1 class="mcounterHeader" title="Counter">TOTAL</h1>
+                <li>Types: 34544</li>
+                <li>Authors: 5454</li>
+                <li>E-Journals: 4545</li>
+            </ul>
+            <!-- END - COUNTER -->
+
+
+
+            <!-- START - FOOTER -->
+            <div class="footer-distributed">
+                <div class="footer-left">
+				    <img src="{% static 'images/nitteUniversity.png' %}" class="footerLogo">
+				        <p class="footer-links">
+					       <a href="#">Home</a>
+					       |
+					       <a href="#">Register</a>
+					       |
+					       <a href="#">Track</a>
+                           |
+                           <a href="#">Login</a>
+					       |
+					       <a href="#">About Us</a>
+				        </p>
+				        <p class="footer-company-name">Nitte University &copy; 2017</p>
+			     </div>
+			     <div class="footer-center">
+				    <div>
+					   <i class="fa fa-map-marker"></i>
+					   <p><span>Deralkatte, Mangalore</span> Karnataka, India - 574110</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-phone"></i>
+					   <p>+91 987 654 3212</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-envelope"></i>
+					   <p><a href="mailto:nitte@nmamit.in">nitte@nmamit.in</a></p>
+				    </div>
+			     </div>
+			     <div class="footer-right">
+				    <p class="footer-company-about">
+					   <span>About the University</span>
+					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
+				    </p>
+				    <div class="footer-icons">
+					   <a href="#"><i class="fa fa-facebook"></i></a>
+					   <a href="#"><i class="fa fa-twitter"></i></a>
+					   <a href="#"><i class="fa fa-linkedin"></i></a>
+				    </div>
+			     </div>
+            </div>
+            <!-- START - FOOTER -->
+
+        </div>
+        <!-- END - MAIN CONTENT BOX -->
+        <script>
+            setInterval(function(){ plusSlides(1); }, 3000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+/* CODED BY ALFAF SHAIKH */
+/* START - TOP NAVIGATION STYLE */
+.topNavigation{
+    grid-area: topNavigation;
+    width: 100%;
+    background: #0054a6;
+    height: 50px;
+    display: grid;
+    z-index: 9;
+    grid-template-columns: auto 0.14fr;
+    grid-template-areas: 
+    "topNavigationPath topNavigationMenu"
+}
+.topNavigation div{
+    height: 0px; /*Height Reset for path & menu*/
+    padding: 8px; 
+}
+
+.topNavigation ul{
+    height: 0px; /*Height Reset for path & menu*/
+    padding: 0px; 
+}
+
+.topNavigationPath{
+    grid-area: topNavigationPath; 
+    font-size: 1.2em;
+    font-family: Roboto;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.topNavigationMenu{
+    grid-area: topNavigationMenu;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style-type: none;
+}
+
+.topNavEmojis img{
+    width: 2vw;
+    cursor: pointer;
+}
+
+.topNavEmojis img:hover{
+    -moz-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+    -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+    filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+    width: 2.2vw;
+}
+
+/* END - TOP NAVIGATION STYLE */

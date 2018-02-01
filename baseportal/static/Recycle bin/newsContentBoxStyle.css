@@ -1,0 +1,114 @@
+/* CODED BY ALFAF SHAIKH */
+
+a{
+    color: none;
+    text-decoration: none;
+}
+
+.newsContentBox{
+    display: grid;
+    margin: 20px;
+    grid-template-rows: 80px 2px 2fr;
+    grid-template-areas: 
+        "newsContentBoxHead"
+        "newsContentBoxHeadBodyDivider"
+        "newsContentBoxBody"
+}
+
+.newsContentBoxHead{
+    grid-area: newsContentBoxHead;
+    color: black;
+    font-size:1.5em;
+    margin-bottom: 6px;
+    overflow-x: bottom;
+    max-width: inherit;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.newsContentBoxBody{
+    grid-area: newsContentBoxBody;
+    color: black;
+    font-size: 0.9em;
+    margin: 8px;
+    max-width: inherit;
+    overflow-x: hidden;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.newsContentBoxHeadBodyDivider{
+    grid-area: newsContentBoxHeadBodyDivider;
+}
+
+/* START - PAGE LAYOUT*/
+.mainContentBox{
+    grid-area: mainContentBox;
+    display: grid;
+    min-height: 100%
+    grid-gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "topNavigation"
+    "newsContentBox"
+    "footer"
+}
+
+a{
+    color: none;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 737px){
+    .mainContentBox{
+        display: grid;
+        grid-gap: 0px;
+        min-height: 100%
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "newsContentBox"
+        "footer"
+    }
+}
+
+/* START - RESPONSIVE PAGE LAYOUT*/
+@media screen and (max-width: 736px){
+    .body{
+        display: grid;
+        background: #e1e1e1;
+        grid-template-columns: 4.5fr;
+        grid-template-areas: 
+        "mainContentBox"
+    }
+    
+    .leftNavigation{
+        grid-area: leftNavigation;
+        display: grid;
+        height: 0px;
+    }
+    
+    .leftNavigationMenuOptions{
+        height: 0px;
+        display: none;
+    }
+    
+    .leftNavigationLogo{
+        height: 0px;
+        display: none;
+    }
+    
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "mobileTopNavigation"
+        "newsContentBox"
+        "footer footer"
+    }
+}
+/* END - RESPONSIVE PAGE LAYOUT*/
+/* END - PAGE LAYOUT*/

@@ -1,0 +1,67 @@
+/* CODED BY ALFAF SHAIKH */
+.newsFeed{
+    grid-area: newsFeed;
+    margin-left: 30px;
+    list-style-type: none;
+    min-height: 450px;
+    min-width: 170px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #FFFFFF;
+    margin-top: 20px;
+    overflow-y: hidden;
+}
+
+.newsFeedHeader{
+    background: #5bbc2e;
+    font-size: 20px;
+    padding:20px;
+    height: 30px;
+    font-size: 1.35em;
+    font-family:fantasy;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.newsFeed li{
+    min-height: 60px;
+    max-height: inherit;
+    padding:2px;
+    font-size: 0.9em;
+    font-family: Roboto;
+    font-weight: bolder; 
+    color: #000000;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.newsFeed li{
+    border-top: solid 1.3px black;
+}
+
+.newsFeed a:last-child{
+    border-bottom: solid 1.3px black;
+}
+
+.newsFeed li:hover{
+    background: #cccdd0;
+}
+
+@media screen and (max-width: 736px){
+    .newsFeed{
+        margin-left: 10px;
+        max-width: 64vw;
+    }
+}
+
+
+@media screen and (min-width: 736px){    
+    .newsFeed{
+        grid-area: newsFeed;
+        margin-right: 30px;
+        list-style-type: none;
+        min-height: 470px;
+        min-width: 170px;
+        max-height: 470px;
+        background: #FFFFFF;
+    }
+}

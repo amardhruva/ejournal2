@@ -1,0 +1,74 @@
+.adminBox{
+    display: none;
+}
+
+.adminBoxDisplay{
+    grid-area: adminBox;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1fr;
+    grid-template-areas: 
+            "adminBoxPic adminBoxName adminBoxLogin"
+            "adminBoxSettings adminBoxEmail adminBoxSignUp";
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #FFFFFF;
+}
+
+.adminBox img{
+    width: 4vw;
+    margin: 10px;
+    border-radius: 40px;
+}
+
+.adminBox input[type="button"]{
+    position: relative;
+    float: right;
+    margin: 0px 40px 20px 20px;
+}
+
+.adminBox span{
+    margin: 20px;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+.adminBoxPic{
+    grid-area: adminBoxPic;
+    padding-left: 10px;
+}
+
+.adminBoxName{
+    grid-area: adminBoxName;
+}
+
+.adminBoxEmail{
+    grid-area: adminBoxEmail;
+}
+
+.adminBoxLogin{
+    grid-area: adminBoxLogin;
+}
+
+.adminBoxSignUp{
+    grid-area: adminBoxSignUp;
+}
+
+.adminBoxSettings{
+    grid-area: adminBoxSettings;
+    color: blue;
+}
+
+.adminBoxSettings span a:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width: 736px){
+    .adminBox{
+        margin-top: 10px;
+    }
+    
+    .adminBox input[type="button"]{
+        margin: 0.8vw;
+    }
+}

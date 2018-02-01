@@ -1,0 +1,62 @@
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover{
+  text-decoration: underline;  
+}
+
+body {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.supportContentBox{
+    position: absolute;
+    top: 12vw;
+    left: 28vw;
+    font-size: 2vw;
+    text-align: center;
+    background: #FFFFFF;
+    min-height: 150px;
+    min-width: 200px;
+    height: 28vw;
+    width: 44vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);*/
+}
+
+.browserIcon{
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+}
+
+.browserName{
+    font-size: 0.8vw;
+}
+
+.lowerPart{
+    margin-left: 5.80vw;
+}
+
+table td{
+    padding: 0.45vw;
+}
+
+.browserSupportImg{
+    width: 12vw;
+    height: 10vw;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.upperPart p{
+    font-family: sans-serif;
+}

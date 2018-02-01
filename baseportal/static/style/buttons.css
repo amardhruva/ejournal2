@@ -1,0 +1,40 @@
+.button{
+    background: #00aeef;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    border: 0px;
+    padding: 20px;
+    min-width: 160px;
+    border-radius: 10px
+}
+
+.button:hover{
+    background: #0054a6;
+}
+
+.buttonSmall{
+    background: #00aeef;
+    color: #FFFFFF;
+    font-size: 1.2em;
+    border: 0px;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 10px
+}
+
+.buttonSmall:hover{
+    background: #0054a6;
+}
+
+.buttonTwo{
+    background: none;
+    border-color: #5bbc2e;
+    border-radius: 6px;
+    padding: 10px;
+    min-width: 12.9vw;
+}
+
+.buttonTwo:hover{
+    background: #5bbc2e;
+    color: #FFFFFF;
+}

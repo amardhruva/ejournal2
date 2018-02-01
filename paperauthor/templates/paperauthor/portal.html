@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<p>hello {{user.username}}</p>
+<p>hello author</p>
+<a href="{% url 'paperauthor:addpaper' %}">Add</a>
+<ol>
+	{% for el in papers %}
+		<li>
+			<a href="{% url 'paperauthor:showpaper' paperslug=el.slug %}">
+				{{el}}
+			</a>
+		</li>
+	{% endfor %}
+</ol>
+{% endblock %}

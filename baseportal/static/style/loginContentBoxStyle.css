@@ -1,0 +1,120 @@
+a{
+    text-decoration: none;
+    color: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.loginBox{
+    display: grid;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 9vw;
+    margin-left: 36vw;
+    width: 500px;
+    height: 560px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "loginHeader"
+        "upperPart"
+        "lowerPart";
+}
+
+.loginHeader{
+    grid-area: loginHeader;
+    background: #5bbc2e;
+    font-size: 20px;
+    padding:20px;
+    height: 30px;
+    font-size: 2em;
+    font-family:fantasy;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.upperPart{
+    display: grid;
+    grid-area: upperPart;
+    grid-gap: 15px;
+    margin-left: 50px;
+    margin-top: 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "usernameLabel"
+        "inputUsername"
+        "passwordLabel"
+        "inputPassword"
+        "keepMeLogin"
+        "forgotPasswordAndSignUp";
+}
+
+.label{
+    grid-area: usernameLabel;
+    font-size: 1.35em;
+    font-family:fantasy;
+    font-weight: lighter;
+}
+
+.keepMeLogin{
+   font-size: 1.1em;
+    font-family: sans-serif; 
+    padding: 5px;
+}
+
+.usernameLabel{
+    grid-area: usernameLabel;
+}
+
+.passwordLabel{
+    grid-area: passwordLabel;
+}
+
+.inputUsername{
+    grid-area: inputUsername;
+}
+
+.inputPassword{
+    grid-area: inputPassword;
+}
+
+.keepMeLogin{
+    grid-area: keepMeLogin;
+}
+
+.lowerPart{
+    grid-area: lowerPart;
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+input[type="submit"]{
+    margin-bottom: 10px;
+}
+
+.forgotPassowrd{
+    grid-area: forgotPassowrd;
+    color: #000000;
+}
+
+.signUp{
+    grid-area: signUp;
+    color: #000000;
+}
+
+
+
+.forgotPasswordAndSignUp{
+    grid-area: forgotPasswordAndSignUp;
+    display: grid;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+            "forgotPassowrd signUp";
+}

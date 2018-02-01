@@ -1,0 +1,57 @@
+/* CODED BY ALFAF SHAIKH */
+.mcounter{
+    grid-area: mcounter;
+    margin-left: 30px;
+    margin-right: 30px;
+    background: #FFFFFF;
+    list-style-type: none;
+    display: grid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 230px;
+    max-height: 230px;
+    min-width: 40vw;
+    margin-top: 20px;
+    grid-template-rows: 0.8fr 0.5fr 0.5fr 0.5fr; 
+}
+
+.mcounterHeader{
+    background: #5bbc2e;
+    font-size: 20px;
+    padding:20px;
+    height: 30px;
+    font-size: 1.35em;
+    font-family:fantasy;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.mcounter li{
+    height: 20px;
+    padding:6px;
+    font-size: 1.15em;
+    font-family:fantasy;
+    /* font-weight: bolder; */
+    color: #000000;
+}
+
+@media screen and (max-width: 736px){
+    .mcounter{
+        margin-left: 0px;
+        margin-right: 10px;
+        height: 50vw;
+    }
+}
+
+@media screen and (min-width: 736px){   
+    .mcounter{
+        grid-area: mcounter;
+        margin-right: 30px;
+        background: #FFFFFF;
+        list-style-type: none;
+        display: grid;
+        min-height: 220px;
+        max-height: 220px;
+        min-width: 70px;
+        grid-template-rows: 0.8fr 0.5fr 0.5fr 0.5fr;   
+    }
+}

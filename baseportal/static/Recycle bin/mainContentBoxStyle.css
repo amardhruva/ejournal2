@@ -1,0 +1,90 @@
+.mainContentBox{
+    display: grid;
+    grid-template-rows: 0.062fr auto;
+}
+
+/* START - TOP NAVIGATION STYLE */
+.topNavigation{
+    background: #0054a6;
+    height: 50px;
+    display: grid;
+    grid-template-columns: auto 0.2fr;
+    grid-template-areas: 
+    "topNavigationPath topNavigationMenu"
+}
+.topNavigation div{
+    height: 0px; /*Height Reset for path & menu*/
+    padding: 10px; 
+}
+
+.topNavigation ul{
+    height: 0px; /*Height Reset for path & menu*/
+    padding: 10px; 
+}
+
+.topNavigationPath{
+    grid-area: topNavigationPath; 
+}
+
+.topNavigationMenu{
+    grid-area: topNavigationMenu;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    list-style-type: none;
+}
+
+/* END - TOP NAVIGATION STYLE */
+
+.contentBox{
+    display: grid;
+    grid-template-columns:4fr 1.3fr;
+    margin-right:3%;
+    margin-left:5%;
+    margin-top:3%;
+    grid-gap: 2%;
+    grid-template-areas: 
+   "leftContent rightContent"
+    
+}
+
+/* START - RIGHT CONTENT STYLE */
+.rightContent{
+    grid-area: rightContent;
+    display: grid;
+    grid-template-rows: 5fr 520px;
+    grid-gap: 5%;
+}
+
+.newsFeed{
+    background: #FFFFFF;
+    list-style-type: none;
+    max-height: 450px;
+    min-height: 450px;    
+}
+
+.counter{
+    background: #EF65AB;
+    max-height: 160px;
+    display: grid;
+}
+/* END - RIGHT CONTENT STYLE  */
+
+/* START - LEFT CONTENT STYLE */
+
+.leftContent{
+    display: grid;
+    grid-area: leftContent;
+    grid-template-rows: 0.7fr auto;
+    grid-gap: 20px;
+}
+
+.slideshow{
+    background: #0054a6;
+    height: 450px;
+}
+
+.verticalSliders{
+    background: #0054a6;
+    display: grid;
+}
+/* END - LEFT CONTENT STYLE */

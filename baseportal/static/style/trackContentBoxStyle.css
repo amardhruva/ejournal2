@@ -1,0 +1,58 @@
+/*CODED BY ALFAF SHAIKH*/
+
+/* START - RESPONSIVE*/
+@media screen and (min-width: 737px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        height: 100%;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "trackContentBox"
+        "footer-distributed"
+    }
+}
+
+@media screen and (max-width: 736px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "mobileSearchBox"
+        "mobileTopNavigation"
+        "trackContentBox"
+        "footer-distributed"
+    }
+    
+    .leftNavigation, .leftNavigationLogo, .leftNavigationMenuOptions{
+        height: 0px;
+        display: none; 
+    }
+}
+
+.trackContentBox{
+    grid-area: trackContentBox;
+    margin: 30px;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.trackContentBoxTitle{
+    font-size: 2.6em;
+    font-family:fantasy;
+    font-weight: lighter;
+    padding-bottom: 15px;
+}
+
+.trackContentBoxBody{
+    font-size: 1em;
+    font-family:sans-serif;
+    font-weight: lighter;
+    padding-bottom: 15px;
+}

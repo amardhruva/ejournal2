@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>horizontal timeline</title>
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+  
+    <link rel="stylesheet prefetch" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/timelineStyle.css">
+        
+    <link rel="stylesheet" href="css/fontAwesome.min.css">
+    
+    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="js/timeline.js"></script>
+   
+  
+</head>
+
+<body>
+
+  <section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events">
+				<ol>
+					<li><a href="#0" data-date="16/01/2014" class="selected">Submitted to Reviewer</a></li>
+					<li><a href="#0" data-date="28/03/2014" disabled>Under Review</a></li>
+                    <li><a href="#0" data-date="20/04/2014" style="visibility: collapse"></a></li>
+                    <li><a href="#0" data-date="20/05/2014">Accept/Reject</a></li>
+                    <li><a href="#0" data-date="09/07/2014">Published</a></li>
+				</ol>
+
+				<span class="filling-line" aria-hidden="true"></span>
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+			
+		<ul class="cd-timeline-navigation">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+	</div> <!-- .timeline -->
+
+	<div class="events-content">
+		<ol>
+			<li class="selected" data-date="16/01/2014">
+				<h2>Submitted to the Reviewer</h2>
+				<em>January 16th, 2017</em>
+				<p>	
+					Your Journal has been Submitted, and it is redirected to one of our certified Reviewer's for the review processs.
+				</p>
+			</li>
+			<li data-date="28/03/2014">
+				<h2>Under Review</h2>
+				<em>February 28th, 2018</em>
+				<p>	
+					Your journal is under review by one of our reviewer's.
+				</p>
+			</li>
+            <li data-date="20/05/2014">
+				<h2>Accepted or Rejected</h2>
+				<em>February 30th, 2014</em>
+				<p>	
+					Your Journal is been Accepted and all set to Publish.
+                    Your Journal is been Rejected due to certain reasons please make the necessary Changes and sumbit again. 
+				</p>
+			</li>
+            <li data-date="09/07/2014">
+				<h2>Published</h2>
+				<em>March 3rd, 2014</em>
+				<p>	
+					Your Journal hs been Published publicaly.
+				</p>
+			</li>
+		</ol>
+	</div> <!-- .events-content -->
+</section>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+hello
+{{paper}}
+{{paper.author}}
+<a href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">
+{{paper.upload}}</a>
+{% endblock %}

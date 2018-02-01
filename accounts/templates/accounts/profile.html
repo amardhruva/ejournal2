@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load has_group %}
+
+{% block content %}
+	<p>hello {{user.username}}</p>
+	{% if user.is_superuser %}
+		<p>hello superuser</p>
+		<a href="{% url 'admin:index' %}">Admin</a>
+	{% endif %}
+	{% if user|has_group:"author" %}
+		<p>hello author</p>
+		<a href="{% url 'paperauthor:portal' %}">Author</a>
+	{% endif %}
+	{% if user|has_group:"reviewer" %}
+		<p>hello reviewer</p>
+		<a href="{% url 'paperreviewer:portal' %}">Review</a>
+	{% endif %}
+	{% if user|has_group:"editor" %}
+		<p>hello editor</p>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+<p>Do You want to review this Paper</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" name="button">Submit</button>
+</form>

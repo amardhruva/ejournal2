@@ -1,0 +1,26 @@
+.mobileTopNavigation{
+    grid-area: mobileTopNavigation;
+    background: #0054a6;
+    height: 40px;
+    visibility: visible;
+}
+
+.mobileTopNavigationMenu{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    list-style-type: none; 
+}
+
+.mobileTopNavigationMenu li{
+    padding: 9px;
+    border-bottom: solid 4px white;
+    text-align: center; 
+    font-family: roboto;
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+
+.mobileTopNavigationMenu li:hover{
+    border-bottom: solid 3px white;
+    background: #fd033a;
+}

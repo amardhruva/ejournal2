@@ -1,0 +1,20 @@
+Hello
+<ol>
+	{% for el in papers %}
+		<li>
+			<a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">
+				{{el}}
+			</a>
+		</li>
+	{% endfor %}
+</ol>
+<p>Review Requests</p>
+<ol>
+	{% for el in reviewrequests %}
+		<li>
+			<a href="{% url 'paperreviewer:reviewrequest' paperslug=el.slug %}">
+				{{el}}
+			</a>
+		</li>
+	{% endfor %}
+</ol>
