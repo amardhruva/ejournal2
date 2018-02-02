@@ -522,7 +522,7 @@ function initAnnotator() {
             function() {}
     );
 
-    
+
     if (!initialized) {
 
         // load alfresco ticket
@@ -531,7 +531,7 @@ function initAnnotator() {
         });
 
         window.setTimeout(function(){$('#introLayer').hide();}, timerInterval);
-        
+
         initialized = true;
         initTimestamp = new Date().getTime();
 /*
@@ -552,7 +552,7 @@ function initAnnotator() {
         });
 */
         var csrf=Cookies.get('csrftoken');
-      var uri="test";
+      var uri="{{paper.track_id}}";
       var pageUri = function () {
       return {
             beforeAnnotationCreated: function (ann) {
@@ -579,7 +579,7 @@ function initAnnotator() {
 
         if (debug) console.log('loadAnnotationsFromSearch');
 
-        
+
          app.annotations.load({
             'uri': uri,
         });

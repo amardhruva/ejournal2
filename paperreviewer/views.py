@@ -6,6 +6,7 @@ from paperreviewer.models import PaperReviewRequest
 from django.core.exceptions import PermissionDenied
 from sendfile import sendfile
 from paperreviewer.forms import ReviewPaperForm, ReviewRequestForm
+from django.urls import resolve
 
 class IsReviewerMixin(UserPassesTestMixin):
     def test_func(self):
@@ -98,4 +99,7 @@ class DownloadPaperView(IsReviewerMixin, LoginRequiredMixin, View):
 class AnnotateView(IsReviewerMixin, LoginRequiredMixin, View):
     def get(self, request):
         uri=request.GET.get('file','')
-        return render(request, "annotate/viewer.html")
+        a=resolve(uri)
+        paperslug=a.kwargs["paperslug"]
+        paper=get_object_or_404(Paper,slug=paperslug)
+        return render(request, "annotate/viewer.html", {"paper":paper})
