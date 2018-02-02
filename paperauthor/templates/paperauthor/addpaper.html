@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-fields=('title', 'description', 'category', 'upload', 'keywords')
+{% load widget_tweaks %}
 
 {% block content %}
 <!-- START - SUBMIT FORM-->
@@ -19,7 +19,7 @@ fields=('title', 'description', 'category', 'upload', 'keywords')
 										{% render_field form.title class="textboxOne" %}{{ form.title.errors }}
 									</td>
 								</div>
-							</tr>                        
+							</tr>
 							<tr>
 								<div class="submitData">
 									<td>
