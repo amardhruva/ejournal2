@@ -65,12 +65,14 @@
             <!-- END - LOGO -->
 
             <!-- START - SEARCH BOX -->
-            <div class="searchBox">
-                <div class='searchInput'>
-                    <input type='search' placeholder='What you looking for?'>
-                </div>
-                <div class='searchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="searchIcon"></div>
-            </div>
+            <form method="get" action="{% url 'baseportal:search' %}">
+              <div class="searchBox">
+                  <div class='searchInput'>
+                      <input type='search' name="q" placeholder='What you looking for?'>
+                  </div>
+                  <div class='searchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="searchIcon"></div>
+              </div>
+            </form>
             <!-- END - SEARCH BOX -->
 
             <!-- START - MENU OPTIONS -->
