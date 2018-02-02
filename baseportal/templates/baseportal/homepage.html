@@ -104,7 +104,7 @@
                 <ul class="topNavigationMenu">
                     <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
                     <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
-                  
+
                 <!-- END - MENU BOX -->
 
             </div>
@@ -172,36 +172,14 @@
             <div class="sliderHeading sliderHeadingOne">RECENT JOURNALS</div>
             <!-- START - SLIDER ONE -->
             <ul class="sliderOne slider dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
+              {% for el in journals %}
+              <li class="card">
+                  <div><img src="{% get_media_prefix %}/{{el.preview_image}}" alt="book Image" class="verticalSlidersImg"></div>
+                  <div>{{el.name}}</div>
+                  <div>{{el.published_date}}</div>
+              </li>
+              {% endfor %}
+
             </ul>
             <!-- END - SLIDER ONE -->
 
@@ -356,15 +334,15 @@
                 <div class="footer-left">
 				    <img src="{% static 'images/nitteUniversity.png' %}" class="footerLogo">
 				        <p class="footer-links">
-					       <a href="{% url %}">Home</a>
+					       <a href="{% url 'baseportal:homepage' %}">Home</a>
 					       |
-					       <a href="{% url %}">Register</a>
+					       <a href="{% url 'accounts:register' %}">Register</a>
 					       |
-					       <a href="{% url %}">Track</a>
+					       <a href="{% url 'baseportal:track' %}">Track</a>
                            |
-                           <a href="{% url %}">Login</a>
+                           <a href="{% url 'accounts:login' %}">Login</a>
 					       |
-					       <a href="{% url %}">About Us</a>
+					       <a href="{% url 'baseportal:aboutus' %}">About Us</a>
 				        </p>
 				        <p class="footer-company-name">Nitte University &copy; 2017</p>
 			     </div>
@@ -388,9 +366,9 @@
 					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
 				    </p>
 				    <div class="footer-icons">
-					   <a href="{% url %}"><i class="fa fa-facebook"></i></a>
-					   <a href="{% url %}"><i class="fa fa-twitter"></i></a>
-					   <a href="{% url %}"><i class="fa fa-linkedin"></i></a>
+					   <a href=""><i class="fa fa-facebook"></i></a>
+					   <a href=""><i class="fa fa-twitter"></i></a>
+					   <a href=""><i class="fa fa-linkedin"></i></a>
 				    </div>
 			     </div>
             </div>

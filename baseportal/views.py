@@ -2,12 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from paperauthor.models import Paper
+from baseportal.models import PublishedJournal
 
 # Create your views here.
 
 class HomePageView(View):
     def get(self, request):
-        return render(request, "baseportal/homepage.html")
+        journals=PublishedJournal.objects.all()
+        return render(request, "baseportal/homepage.html", {"journals":journals})
 
 class AboutUsView(View):
     def get(self, request):
