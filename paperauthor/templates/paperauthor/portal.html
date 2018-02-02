@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 
+{% block sidebar %}
+	<p>Appears in only this page<p>
+{% endblock %}
+
 {% block content %}
 <p>hello {{user.username}}</p>
 <p>hello author</p>

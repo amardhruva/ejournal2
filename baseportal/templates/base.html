@@ -10,8 +10,16 @@
 	</head>
 	<body>
 		<div class='container'>
-			{% block content %}
-			{% endblock %}
+			<div class='sidebar'>
+				{% block sidebar %}
+				{% endblock %}
+				<a href="{% url 'accounts:logout' %}">Log out</a>
+				<p>Appears in all pages</p>
+		  </div>
+			<div class='content'>
+				{% block content %}
+				{% endblock %}
+			</div>
 		</div>
 	</body>
 </html>
