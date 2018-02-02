@@ -92,7 +92,7 @@ class ReviewPaperView(IsReviewerMixin, LoginRequiredMixin, View):
 class DownloadPaperView(IsReviewerMixin, LoginRequiredMixin, View):
     def get(self, request, paperslug):
         paper=Paper.objects.get(slug=paperslug)
-        if paper.author != request.user:
+        if paper.reviewer != request.user:
             raise PermissionDenied
         return sendfile(request,  paper.upload.path, attachment=True)
 
