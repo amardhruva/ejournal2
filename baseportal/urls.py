@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.urls.conf import path
-from baseportal.views import HomePageView, TrackView, AboutUsView
+from baseportal.views import HomePageView, TrackView, AboutUsView, ShowJournalView
 
 app_name='baseportal'
 
@@ -22,4 +22,5 @@ urlpatterns = [
     path('', HomePageView.as_view(), name="homepage"),
     path('track', TrackView.as_view(), name="track"),
     path('aboutus/', AboutUsView.as_view(), name="aboutus"),
+    path('showjournal/<slug:journalslug>/', ShowJournalView.as_view(), name="showjournal"),
 ]

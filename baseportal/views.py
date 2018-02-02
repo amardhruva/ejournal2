@@ -11,6 +11,11 @@ class HomePageView(View):
         journals=PublishedJournal.objects.all()
         return render(request, "baseportal/homepage.html", {"journals":journals})
 
+class ShowJournalView(View):
+    def get(self, request, journalslug):
+        journal=get_object_or_404(PublishedJournal, slug=journalslug)
+        return render(request, "baseportal/showjournal.html", {"journal":journal})
+
 class AboutUsView(View):
     def get(self, request):
         return render(request, "baseportal/aboutus.html")

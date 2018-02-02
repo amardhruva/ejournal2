@@ -1,0 +1,8 @@
+{% load static %}
+<h1>{{journal.name}}</h1>
+
+<p>{{journal.description}}</p>
+
+<p>{{journal.published_date}}<p>
+<p><a href="{% get_media_prefix %}{{journal.upload}}">Download</a></p>
+<img src="{% get_media_prefix %}{{journal.preview_image}}" alt=""/>
