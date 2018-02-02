@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'accounts',
     'sendfile',
     'django.contrib.admin',
+    'annotator',
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +140,9 @@ SENDFILE_URL = '/protected'
 
 # Dev Email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
+

@@ -22,7 +22,7 @@ app_name='paperauthor'
 urlpatterns = [
     path('portal/', AuthorPortalView.as_view(), name='portal'),
     path('addpaper/', AddPaperView.as_view(), name='addpaper'),
-    path('showpaper/<slug:paperslug>/',
+    path('showpaper/<slug:paperslug>.pdf',
         ShowPaperView.as_view(), name='showpaper'),
     path('downloadpaper/<slug:paperslug>/',
         DownloadPaperView.as_view(), name='downloadpaper'),

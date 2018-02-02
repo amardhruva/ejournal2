@@ -31,7 +31,7 @@
     </head>
     <body bgcolor="#e1e1e1">
         <div class="loginBox">
-            <div class="loginHeader">Login</div>
+            <div class="loginHeader">Login<span class="loginHome" style="float:right"><a href="{% url 'baseportal:homepage' %}">Home</a></span></div>
             <form method="post">
                 <div class="upperPart">
                   {% csrf_token %}
@@ -42,7 +42,7 @@
                     <div class="inputPassword">{% render_field form.password class="textboxOne" size="100" %}{{ form.password.errors }}</div>
                     <div class="forgotPasswordAndSignUp">
                         <a href="#" class="forgotPassowrd">Forgot Password ?</a>
-                        <a href="register.html" class="signUp">Not yet Signed Up ?</a>
+                        <a href="{% url 'accounts:register' %}" class="signUp">Get New account!</a>
                     </div>
                 </div>
                 <br>

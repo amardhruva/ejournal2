@@ -7,8 +7,7 @@
 
         <!-- [if lt IE 9]>
         <script type="text/javascript">
-            consoloe.log("does not support");
-            windows.location.href="browserSupport.html";
+            windows.location.href="{% static 'browserSupport.html' %} ";
         </script>
         <!--[endif]-->
 
@@ -36,7 +35,6 @@
         <link rel="stylesheet" href="{% static 'style/indexContentBoxStyle.css' %}">
         <link rel="stylesheet" href="{% static 'style/horizontalSlider.css' %}">
         <link rel="stylesheet" href="{% static 'style/footerStyle.css' %}">
-        <link rel="stylesheet" href="{% static 'style/adminBoxStyle.css' %}">
 	    <link rel="stylesheet" href="{% static 'style/fontAwesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'style/searchBoxStyle.css' %}">
         <link rel="stylesheet" href="{% static 'style/searchBoxStyleMobile.css' %}">
@@ -45,15 +43,14 @@
         <!-- END - IMPORT STYLESHEETS -->
 
         <!-- START - IMPORT SCRIPTS -->
-        <script type="text/javascript" src="{% static 'scripts/adminBox.js' %}"></script>
+
         <script type="text/javascript" src="{% static 'scripts/dragscroll.js' %}"></script>
         <script type="text/javascript" src="{% static 'scripts/slideshow.js' %}"></script>
         <script src="{% static 'scripts/vendor/jquery-1.10.2.min.js' %}"></script>
-        <!--<script src="{% static 'scripts/horizontalSlider.js' %}"></script> -->
         <!-- END - INITIAL INCLUDES -->
 
         <!-- START - TITLE -->
-        <title> E-Journal | Home </title>
+        <title> E-Journal | Nitte University </title>
         <!-- END - TITLE -->
 
     </head>
@@ -82,11 +79,11 @@
 
                 <a href="{% url 'accounts:register' %}"><li class="leftOptionTwo"><span class="leftNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
 
-                <a href="track.html"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+                <a href="{% url 'baseportal:track' %}"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
 
                 <a href="{% url 'accounts:login' %}"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
 
-                <a href="aboutus.html"><li class="leftOptionFour"><span class="leftNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+                <a href="{% url 'baseportal:aboutus' %}"><li class="leftOptionFour"><span class="leftNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
             </ul>
             <!-- END - MENU OPTIONS -->
 
@@ -107,8 +104,7 @@
                 <ul class="topNavigationMenu">
                     <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
                     <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
-                    <li class="topOptionThree" title="Admin"  onclick="toggleAdminBox();"><div class="topNavEmojis"><img src="{% static 'images/linkedin.png' %}"></div></li>
-                </ul>
+                  
                 <!-- END - MENU BOX -->
 
             </div>
@@ -116,15 +112,15 @@
             <!-- START - MOBILE MENU BOX -->
             <div class="mobileTopNavigation">
                 <ul class="mobileTopNavigationMenu">
-                    <a href="index.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+                    <a href="{% url 'baseportal:homepage' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
 
-                    <a href="register.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
+                    <a href="{% url 'accounts:register' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
 
-                    <a href="track.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+                    <a href="{% url 'baseportal:track' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
 
-                    <a href="login.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
+                    <a href="{% url 'accounts:login' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
 
-                    <a href="aboutus.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+                    <a href="{% url 'baseportal:aboutus' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
                 </ul>
             </div>
             <!-- END - MOBILE MENU BOX -->
@@ -138,18 +134,6 @@
             </div>
             <!-- END - MOBILE SEARCH BOX-->
 
-            <!-- START - ADMIN BOX -->
-
-            <div class="adminBox">
-                <div class="adminBoxPic"><img src="{% static 'images/ff.png' %}"></div>
-                <div class="adminBoxSettings"><span><a href="settings.html">Settings</a></span></div>
-                <div class="adminBoxName"><span><input type="text" disabled value="Name" class="textboxOne"></span></div>
-                <div class="adminBoxEMail"><span><input type="email" disabled value="EMail" class="textboxOne"></span></div>
-                <div  class="adminBoxLogin"><a href="login.html"><input type="button" class="buttonTwo" value="Login"></a></div>
-                <div class="adminBoxSignUp"><a href="register.html"><input type="button" class="buttonTwo" value="Sign Up"></a></div>
-            </div>
-
-            <!-- END - ADMIN BOX-->
 
             <!-- END - TOP NAVIGATION BAR -->
 
@@ -157,17 +141,17 @@
             <div class="slideshow">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
-                      <img src="images/slidePic1.jpeg" style="width:100%">
+                      <img src="{% static 'images/slidePic1.jpeg' %}" style="width:100%">
                       <div class="text">No more books, Let's EBook</div>
                     </div>
 
                     <div class="mySlides fade">
-                      <img src="images/slidePic2.jpeg" style="width:100%">
+                      <img src="{% static 'images/slidePic2.jpeg' %}" style="width:100%">
                       <div class="text">Gain knowledge</div>
                     </div>
 
                     <div class="mySlides fade">
-                      <img src="images/slidePic3.jpeg" style="width:100%">
+                      <img src="{% static 'images/slidePic3.jpeg' %}" style="width:100%">
                       <div class="text">Switch to EBooks</div>
                     </div>
 
@@ -218,12 +202,6 @@
                     <div>Name</div>
                     <div>Author</div>
                 </li>
-
-                <!-- START - RIGHT AND LEFT SLIDE BUTTON
-                <span class="slider__nav slider__nav_left" onclick="goRightOne();"></span>
-				<span class="slider__nav slider__nav_next" onclick="goLeftOne();"></span>
-                 END - RIGHT AND LEFT SLIDE BUTTON -->
-
             </ul>
             <!-- END - SLIDER ONE -->
 
@@ -362,27 +340,6 @@
 
         <!-- END - HORIZONTAL  SLIDERS -->
 
-            <!-- START - NEWS FEED
-            <ul class="newsFeed">
-                <h1 class="newsFeedHeader" title="Latest News">NEWS FEED</h1>
-                <marquee direction="up" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">
-                    <a href="viewnews.html"><li>adsa</li></a>
-                    <a href="viewnews.html"><li>abcdefghijklmnpqrstuvwxyzabcdefghijklmnopaaaadfdfddfdfdfdppp
-                            abcdefghijklmnpqrstuvwxyzabcdefghijklmnop
-                            abcdefghijklmnpqrstuvwxyzabcdefghijkl....
-                            dfdfdfassssabcd
-                            sfdfdf
-                    sdf</li></a>
-                    <a href="viewnews.html"><li>adsa</li></a>
-                    <a href="viewnews.html"><li>adsa1</li></a>
-                    <a href="viewnews.html"><li>sdffds</li></a>
-                    <a href="viewnews.html"><li>sdffds</li></a>
-                    <a href="viewnews.html"><li>sdffds</li></a>
-                    <a href="viewnews.html"><li>sdffds</li></a>
-                </marquee>
-            </ul>
-            END - NEWS FEED -->
-
             <!-- START - COUNTER -->
             <ul class="mcounter">
                 <h1 class="mcounterHeader" title="Counter">TOTAL</h1>
@@ -399,15 +356,15 @@
                 <div class="footer-left">
 				    <img src="{% static 'images/nitteUniversity.png' %}" class="footerLogo">
 				        <p class="footer-links">
-					       <a href="#">Home</a>
+					       <a href="{% url %}">Home</a>
 					       |
-					       <a href="#">Register</a>
+					       <a href="{% url %}">Register</a>
 					       |
-					       <a href="#">Track</a>
+					       <a href="{% url %}">Track</a>
                            |
-                           <a href="#">Login</a>
+                           <a href="{% url %}">Login</a>
 					       |
-					       <a href="#">About Us</a>
+					       <a href="{% url %}">About Us</a>
 				        </p>
 				        <p class="footer-company-name">Nitte University &copy; 2017</p>
 			     </div>
@@ -431,9 +388,9 @@
 					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
 				    </p>
 				    <div class="footer-icons">
-					   <a href="#"><i class="fa fa-facebook"></i></a>
-					   <a href="#"><i class="fa fa-twitter"></i></a>
-					   <a href="#"><i class="fa fa-linkedin"></i></a>
+					   <a href="{% url %}"><i class="fa fa-facebook"></i></a>
+					   <a href="{% url %}"><i class="fa fa-twitter"></i></a>
+					   <a href="{% url %}"><i class="fa fa-linkedin"></i></a>
 				    </div>
 			     </div>
             </div>

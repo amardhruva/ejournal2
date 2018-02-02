@@ -93,18 +93,18 @@
 
             </div>
 
-            <!-- START - MOBILE MENU BOX -->
+           !-- START - MOBILE MENU BOX -->
             <div class="mobileTopNavigation">
                 <ul class="mobileTopNavigationMenu">
-                    <a href="index.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+                    <a href="{% url 'baseportal:homepage' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
 
-                    <a href="register.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
+                    <a href="{% url 'accounts:register' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/note.png' %}"></span><span>REGISTER</span></li></a>
 
-                    <a href="track.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+                    <a href="{% url 'baseportal:track' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
 
-                    <a href="login.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
+                    <a href="{% url 'accounts:login' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
 
-                    <a href="aboutus.html"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+                    <a href="{% url 'baseportal:aboutus' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
                 </ul>
             </div>
             <!-- END - MOBILE MENU BOX -->
@@ -125,7 +125,7 @@
                 <p class="trackContentBoxTitle">Track your Paper Work</p>
                 <div class="trackContentBoxBody">
                     <!-- START - SEARCH BOX -->
-                    <form method="get" target="/">
+                    <form method="get">
                       <div class="trackSearchBox" style="background: #ffffff">
                           <div class='trackSearchInput'>
                               <input type='search' placeholder='What you tracking for?' name='id'>

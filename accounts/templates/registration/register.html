@@ -88,7 +88,7 @@
                 <ul class="topNavigationMenu">
                     <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
                     <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
-                    <li class="topOptionThree" title="Admin"  onclick="toggleAdminBox();"><div class="topNavEmojis"><img src="{% static 'images/linkedin.png' %}"></div></li>
+                   
                 </ul>
                 <!-- END - MENU BOX -->
 
@@ -190,7 +190,7 @@
                                     <label class="registerContentBoxLabel" for="#">Type : </label>
                                 </td>
                                 <td>
-                                    {% render_field form.user_type %}{{ form.user_type.errors }}
+                                    {% render_field form.user_type class="comboBoxOne" %}{{ form.user_type.errors }}
                                 </td>
                             </div>
                         </tr>

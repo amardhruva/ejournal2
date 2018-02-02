@@ -1,4 +1,5 @@
 <h1>{{paper}}</h1>
+<a href="{% url 'paperreviewer:annotate' %}?file={% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">Annotate</a>
 <a href="{% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">
 	{{paper.upload}}
 </a>

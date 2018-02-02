@@ -32,8 +32,4 @@ class TrackView(View):
                     context["trackstatus"]=1
                 else:
                     context["trackstatus"]=2
-
-
-
-
         return render(request, "baseportal/track.html", context)

@@ -94,3 +94,8 @@ class DownloadPaperView(IsReviewerMixin, LoginRequiredMixin, View):
         if paper.author != request.user:
             raise PermissionDenied
         return sendfile(request,  paper.upload.path, attachment=True)
+
+class AnnotateView(IsReviewerMixin, LoginRequiredMixin, View):
+    def get(self, request):
+        uri=request.GET.get('file','')
+        return render(request, "annotate/viewer.html")

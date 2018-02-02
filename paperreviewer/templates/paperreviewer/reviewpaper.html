@@ -1,5 +1,58 @@
+<!-- START - SUBMIT FORM-->
+<div class="submitContentBox">
 <form method="post">
 	{% csrf_token %}
 	{{form.as_p}}
-	<button type="submit">Submit</button>
+							<p class="submitContentBoxTitle">Fill in Details</p>
+							<table cellspacing="10">
+								<tr>
+									<div class="submitData">
+										<td>
+											<label class="submitContentBoxLabel" for="#">Comments to Admin and Author: </label>
+										</td>
+										<td>
+											{% render_field form.comments_to_author class="textboxOne" %}{{ form.comments_to_author.errors }}
+											<textarea rows="5" name="#" class="textboxOne"></textarea>
+										</td>
+									</div>
+								</tr>
+								<tr>
+									<div class="submitData">
+										<td>
+											<label class="submitContentBoxLabel" for="#">Comments only to Admin</label>
+										</td>
+										<td>
+											{% render_field form.comments_to_editor class="textboxOne" %}{{ form.comments_to_editor.errors }}
+											<textarea rows="5" name="#" class="textboxOne"></textarea>
+										</td>
+									</div>
+								</tr>
+								<!-- 
+								<tr>
+									<div class="submitData">
+										<td>
+											<label class="submitContentBoxLabel" for="#">Extra Comments</label>
+										</td>
+										<td>
+											{% render_field form.extra_comments class="textboxOne" %}{{ form..errors }}
+											<textarea rows="5" name="#" class="textboxOne"></textarea>
+										</td>
+									</div>
+								</tr>
+							-->
+								<tr>
+									<div class="submitData">
+										<td>
+											<input type="submit" class="button">
+										</td>
+										<td>
+											<input type="reset" class="button">
+										</td>
+										<td>{{form.non_field_errors}}</td>
+									</div>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<!-- END - SUBMIT FORM-->
 </form>

@@ -27,5 +27,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('author/', include('paperauthor.urls')),
     path('reviewer/', include('paperreviewer.urls')),
+    path('api/', include('annotator.urls')),
     path('', include('baseportal.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

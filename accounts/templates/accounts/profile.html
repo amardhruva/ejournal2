@@ -5,15 +5,15 @@
 {% block content %}
 	<p>hello {{user.username}}</p>
 	{% if user.is_superuser %}
-		<p>hello superuser</p>
+		<p>Press below link to proceed</p>
 		<a href="{% url 'admin:index' %}">Admin</a>
 	{% endif %}
 	{% if user|has_group:"author" %}
-		<p>hello author</p>
+		<p>Press below link to proceed</p>
 		<a href="{% url 'paperauthor:portal' %}">Author</a>
 	{% endif %}
 	{% if user|has_group:"reviewer" %}
-		<p>hello reviewer</p>
+		<p>Press below link to proceed</p>
 		<a href="{% url 'paperreviewer:portal' %}">Review</a>
 	{% endif %}
 	{% if user|has_group:"editor" %}

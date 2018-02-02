@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls.conf import path
 from paperreviewer.views import ReviewerPortalView, ShowPaperView,\
-    DownloadPaperView, ReviewPaperView, ReviewRequestView
+    DownloadPaperView, ReviewPaperView, ReviewRequestView, AnnotateView
 
 app_name='paperreviewer'
 
@@ -23,8 +23,9 @@ urlpatterns = [
     path('portal/', ReviewerPortalView.as_view(), name='portal'),
     path('showpaper/<slug:paperslug>/',
         ShowPaperView.as_view(), name='showpaper'),
-    path('downloadpaper/<slug:paperslug>/',
+    path('downloadpaper/<slug:paperslug>.pdf',
         DownloadPaperView.as_view(), name='downloadpaper'),
+    path('annotate.html', AnnotateView.as_view(), name='annotate'),
     path('reviewrequest/<slug:paperslug>/',
         ReviewRequestView.as_view(), name='reviewrequest'),
     path('reviewpaper/<slug:paperslug>/', ReviewPaperView.as_view(),
