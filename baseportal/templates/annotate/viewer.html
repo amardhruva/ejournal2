@@ -492,6 +492,7 @@ var alfTicket = undefined;
 var timerInterval = 3000;
 var debug = true;
 
+var uri="{{paper.track_id.hex}}";
 if (navigator.appName=='Microsoft Internet Explorer') {
     $('#divLoadingWheel').hide();
     $('#divBrowser').show();
@@ -552,7 +553,6 @@ function initAnnotator() {
         });
 */
         var csrf=Cookies.get('csrftoken');
-      var uri="{{paper.track_id}}";
       var pageUri = function () {
       return {
             beforeAnnotationCreated: function (ann) {
@@ -566,12 +566,9 @@ function initAnnotator() {
       .include(annotator.storage.http, {prefix: 'http://localhost:8000/api', headers:{"X-CSRFToken":csrf}})
       .include(pageUri);
 
-      app.start()
-        .then(function () {
-         app.annotations.load({uri: uri});
-      });
+      app.start();
       //End new code
-        window.setInterval(initAnnotator, timerInterval);
+        window.setTimeout(initAnnotator, timerInterval);
 
         if (debug) console.log('setInterval for initAnnotator');
 
