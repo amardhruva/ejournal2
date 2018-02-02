@@ -25,7 +25,7 @@ class AddPaperView(IsAuthorMixin, LoginRequiredMixin, View):
     def get(self, request):
         form=PaperForm()
         return render(request, "paperauthor/addpaper.html", {"form":form})
-    
+
     def post(self, request):
         form=PaperForm(request.POST, request.FILES)
         if form.is_valid():
@@ -49,5 +49,10 @@ class DownloadPaperView(IsAuthorMixin, LoginRequiredMixin, View):
             raise PermissionDenied
         return sendfile(request,  paper.upload.path, attachment=True)
 
-
-
+class AnnotateView(IsAuthorMixin, LoginRequiredMixin, View):
+    def get(self, request):
+        uri=request.GET.get('file','')
+        a=resolve(uri)
+        paperslug=a.kwargs["paperslug"]
+        paper=get_object_or_404(Paper,slug=paperslug)
+        return render(request, "annotate/viewerreadonly.html", {"paper":paper})

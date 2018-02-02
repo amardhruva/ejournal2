@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'annotator',
     'rest_framework',
     'django_filters',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,4 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
