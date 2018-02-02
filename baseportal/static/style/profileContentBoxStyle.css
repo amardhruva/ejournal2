@@ -1,0 +1,82 @@
+/* CODED BY ALFAF SHAIKH */
+
+/* START - RESPONSIVE*/
+@media screen and (min-width: 737px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        min-height: 100%;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "profileContentBox"
+        "footer-distributed"
+    }
+
+    .body{
+        display: grid;
+        width: 100%;
+        background: #e1e1e1;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "mainContentBox"
+    }
+}
+
+@media screen and (max-width: 736px){
+    .mainContentBox{
+        grid-area: mainContentBox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "topNavigation"
+        "profileContentBox"
+        "footer-distributed"
+    }
+
+    .body{
+        display: grid;
+        width: 100%;
+        background: #e1e1e1;
+        grid-template-columns: 4.5fr;
+        grid-template-areas: 
+        "mainContentBox"
+    }
+}
+
+.profileContentBox{
+    grid-area: profileContentBox;
+    margin: 30px;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profileContentBoxTitle{
+    font-size: 2.6em;
+    font-family:fantasy;
+    font-weight: lighter;
+    padding-bottom: 15px;
+}
+
+.profileContentBoxLabel{
+    font-size: 1em;
+    font-family:fantasy;
+    font-weight: lighter;
+    text-align: right;
+}
+
+.profileData{
+    margin: 20px;
+}
+
+.button{
+    margin: 10px;
+}
+
+.edit:hover{
+    text-decoration: underline;
+    color: #000000;
+}

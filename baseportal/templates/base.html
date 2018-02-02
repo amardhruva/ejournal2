@@ -7,19 +7,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>{% block title %}{% endblock %}</title>
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" crossorigin="anonymous">
+		   <!-- [if lt IE 9]>
+        <script type="text/javascript">
+            windows.location.href="{% static 'browserSupport.html' %} ";
+        </script>
+        <!--[endif]-->
+
+        <!-- START - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+        <script type="text/javascript" src="{% static 'scripts/browserSupport.js' %}"></script>
+        <!-- END - SCRIPT TO CHECK IF BROWSER SUPPORTS CSS GRIDS -->
+
+        <!-- START - INITIAL INCLUDES -->
+
+        <!-- START - DECLARE META TAGS -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- END - DECLARE META TAGS -->
+
+        <!-- START - IMPORT STYLESHEETS -->
+        <link rel="icon" href="{% static 'images/nitteUniversityIconBlue.ico' %}">
+        <link rel="stylesheet" href="{% static 'style/layoutReset.css' %}">
+        <link rel="stylesheet" href="{% static 'style/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'style/leftNavigationStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/topNavigationStyleMobile.css' %}">
+        <link rel="stylesheet" href="{% static 'style/topNavigationStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/slideshowStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/mcounter.css' %}">
+        <link rel="stylesheet" href="{% static 'style/newsFeedStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/indexContentBoxStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/horizontalSlider.css' %}">
+        <link rel="stylesheet" href="{% static 'style/footerStyle.css' %}">
+	    <link rel="stylesheet" href="{% static 'style/fontAwesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'style/searchBoxStyle.css' %}">
+        <link rel="stylesheet" href="{% static 'style/searchBoxStyleMobile.css' %}">
+        <link rel="stylesheet" href="{% static 'style/buttons.css' %}">
+        <link rel="stylesheet" href="{% static 'style/textbox.css' %}">
+        <!-- END - IMPORT STYLESHEETS -->
+
+        <!-- START - IMPORT SCRIPTS -->
+
+        <script type="text/javascript" src="{% static 'scripts/dragscroll.js' %}"></script>
+        <script type="text/javascript" src="{% static 'scripts/slideshow.js' %}"></script>
+        <script src="{% static 'scripts/vendor/jquery-1.10.2.min.js' %}"></script>
+        <!-- END - INITIAL INCLUDES -->
+
+        <!-- START - TITLE -->
+        <title> E-Journal Portal | Nitte University </title>
+        <!-- END - TITLE -->
+
 	</head>
-	<body>
-		<div class='container'>
-			<div class='sidebar'>
-				{% block sidebar %}
+	<body class="body" onload="showSlides(1);">
+
+        <!-- START - LEFT SIDE NAVIGATION BAR -->
+        <div class="leftNavigation">
+            <!-- START - LOGO -->
+            <div class="leftNavigationLogo" title="E-Journal">
+                <img src="{% static 'images/nitteUniversity.png' %}">
+            </div>
+            <!-- END - LOGO -->
+
+            <!-- START - SEARCH BOX -->
+            <form method="get" action="{% url 'baseportal:search' %}"><div class="searchBox">
+                <div class='searchInput'>
+                    <input type='search' name="q" placeholder='What you looking for?'>
+                </div>
+                <button type="submit" class='searchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="searchIcon"></button></form>
+            </div>
+            <!-- END - SEARCH BOX -->
+
+            <!-- START - MENU OPTIONS -->
+            <ul class="leftNavigationMenuOptions">
+                <a href="{% url 'baseportal:homepage' %}"><li class="leftOptionOne" style="border-right: solid 8px white;background: #fd033a;"><span class="leftNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+		 <a href="{% url 'baseportal:track' %}"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+
+                {% block user %}
+		{% endblock %}
+
+                <a href="{% url 'baseportal:aboutus' %}"><li class="leftOptionFour"><span class="leftNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+            </ul>
+            <!-- END - MENU OPTIONS -->
+
+        </div>
+        <!-- END - LEFT SIDE NAVIGATION BAR -->
+
+        <!-- START - MAIN CONTENT BOX -->
+        <div class="mainContentBox">
+
+            <!-- START - TOP NAVIGATION BAR -->
+            <div class="topNavigation">
+
+                <!-- START - PATH BAR -->
+                <div class="topNavigationPath" title="Current Path">Ejournal &gt; Home</div>
+                <!-- END - PATH BAR -->
+
+                <!-- START - MENU BOX -->
+                <ul class="topNavigationMenu">
+                    <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
+                    <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
+                  
+                <!-- END - MENU BOX -->
+
+            </div>
+
+            <!-- START - MOBILE MENU BOX -->
+            <div class="mobileTopNavigation">
+                <ul class="mobileTopNavigationMenu">
+                    <a href="{% url 'baseportal:homepage' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
+
+                    
+                {% block muser %}
+		{% endblock %}
+
+                    <a href="{% url 'baseportal:track' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
+
+                 
+                    <a href="{% url 'baseportal:aboutus' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
+                </ul>
+            </div>
+            <!-- END - MOBILE MENU BOX -->
+
+            <!-- START - MOBILE SEARCH BOX -->
+            <div class="mobileSearchBox">
+                <div class='mobileSearchInput'>
+                    <input type='search' placeholder='What you looking for?'>
+                </div>
+                <div class='mobileSearchButton'><img src="{% static 'images/searchIconWhite.png' %}" class="mobileSearchIcon"></div>
+            </div>
+            <!-- END - MOBILE SEARCH BOX-->
+
+
+            <!-- END - TOP NAVIGATION BAR -->
+
+         	{% block content %}
 				{% endblock %}
-				<a href="{% url 'accounts:logout' %}">Log out</a>
-				<p>Appears in all pages</p>
-		  </div>
-			<div class='content'>
-				{% block content %}
-				{% endblock %}
-			</div>
-		</div>
+
+
+
+            <!-- START - FOOTER -->
+            <div class="footer-distributed">
+                <div class="footer-left">
+				    <img src="{% static 'images/nitteUniversity.png' %}" class="footerLogo">
+				        <p class="footer-links">
+					       <a href="{% url 'baseportal:homepage' %}">Home</a>
+					       |
+					       <a href="{% url 'accounts:register' %}">Register</a>
+					       |
+					       <a href="{% url 'baseportal:track' %}">Track</a>
+                           |
+                           <a href="{% url 'accounts:login' %}">Login</a>
+					       |
+					       <a href="{% url 'baseportal:aboutus' %}">About Us</a>
+				        </p>
+				        <p class="footer-company-name">Nitte University &copy; 2017</p>
+			     </div>
+			     <div class="footer-center">
+				    <div>
+					   <i class="fa fa-map-marker"></i>
+					   <p><span>Deralkatte, Mangalore</span> Karnataka, India - 574110</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-phone"></i>
+					   <p>+91 987 654 3212</p>
+				    </div>
+				    <div>
+					   <i class="fa fa-envelope"></i>
+					   <p><a href="mailto:nitte@nmamit.in">nitte@nmamit.in</a></p>
+				    </div>
+			     </div>
+			     <div class="footer-right">
+				    <p class="footer-company-about">
+					   <span>About the University</span>
+					   Nitte University, Engineering Bachelores Degree, Masters Degree, Diploma, Schools, Variuos branches CSE, ISE, CIVIL, MECHANICAL, E and E, E and C , Phd.
+				    </p>
+				    <div class="footer-icons">
+					   <a href=""><i class="fa fa-facebook"></i></a>
+					   <a href=""><i class="fa fa-twitter"></i></a>
+					   <a href=""><i class="fa fa-linkedin"></i></a>
+				    </div>
+			     </div>
+            </div>
+            <!-- START - FOOTER -->
+
+        </div>
+        <!-- END - MAIN CONTENT BOX -->
+        <script>
+            setInterval(function(){ plusSlides(1); }, 3000);
+        </script>
+			
+		
+	
 	</body>
 </html>

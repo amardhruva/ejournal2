@@ -1,4 +1,5 @@
-Hello
+{% extends 'base.html' %}
+{% block content %}
 <ol>
 	{% for el in papers %}
 		<li>
@@ -18,3 +19,4 @@ Hello
 		</li>
 	{% endfor %}
 </ol>
+{% endblock %}
