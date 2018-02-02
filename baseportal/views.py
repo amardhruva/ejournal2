@@ -9,6 +9,10 @@ class HomePageView(View):
     def get(self, request):
         return render(request, "baseportal/homepage.html")
 
+class AboutUsView(View):
+    def get(self, request):
+        return render(request, "baseportal/aboutus.html")
+
 class TrackView(View):
     def get(self, request):
         track_id=request.GET.get('id','')
