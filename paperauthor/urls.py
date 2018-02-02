@@ -22,9 +22,9 @@ app_name='paperauthor'
 urlpatterns = [
     path('portal/', AuthorPortalView.as_view(), name='portal'),
     path('addpaper/', AddPaperView.as_view(), name='addpaper'),
-    path('showpaper/<slug:paperslug>.pdf',
+    path('showpaper/<slug:paperslug>/',
         ShowPaperView.as_view(), name='showpaper'),
-    path('downloadpaper/<slug:paperslug>/',
+    path('downloadpaper/<slug:paperslug>.pdf',
         DownloadPaperView.as_view(), name='downloadpaper'),
     path('annotate.html', AnnotateView.as_view(), name='annotate'),
 ]

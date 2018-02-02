@@ -45,7 +45,7 @@ class ShowPaperView(IsAuthorMixin, LoginRequiredMixin, View):
 class DownloadPaperView(IsAuthorMixin, LoginRequiredMixin, View):
     def get(self, request, paperslug):
         paper=Paper.objects.get(slug=paperslug)
-        if paper.reviewer != request.user:
+        if paper.author != request.user:
             raise PermissionDenied
         return sendfile(request,  paper.upload.path, attachment=True)
 
