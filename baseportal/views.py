@@ -11,6 +11,12 @@ class HomePageView(View):
         journals=PublishedJournal.objects.all()
         return render(request, "baseportal/homepage.html", {"journals":journals})
 
+class SearchJournal(View):
+    def get(self, request):
+        keyword=request.GET.get("q",'')
+        results=PublishedJournal.objects.filter(name__icontains=keyword)
+        return render(request, "baseportal/search.html", {"results":results, "keyword":keyword})
+
 class ShowJournalView(View):
     def get(self, request, journalslug):
         journal=get_object_or_404(PublishedJournal, slug=journalslug)

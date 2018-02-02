@@ -1,0 +1,14 @@
+
+
+<h1>Results for {{keyword}}</h1>
+{% if results %}
+  {% for el in results %}
+  <p>
+    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+      {{el.name}}
+    </a>
+  </p>
+  {% endfor %}
+{% else %}
+  No results
+{% endif %}
