@@ -11,6 +11,7 @@ hello
   <p>Paper not yet reviewed</p>
 {% else %}
   <p>Status: {{paper.review_status}}</p>
+  <a href="{% url 'paperauthor:annotate' %}/?file={% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">View Annotations</a>
 {% endif %}
 <p>Track id : {{paper.track_id}}</p>
 <a href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">
