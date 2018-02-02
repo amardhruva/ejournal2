@@ -43,7 +43,8 @@
         <link rel="stylesheet" href="{% static 'style/buttons.css' %}">
         <link rel="stylesheet" href="{% static 'style/textbox.css' %}">
         <!-- END - IMPORT STYLESHEETS -->
-
+				{% block styles %}
+				{% endblock %}
         <!-- START - IMPORT SCRIPTS -->
 
         <script type="text/javascript" src="{% static 'scripts/dragscroll.js' %}"></script>
@@ -104,7 +105,7 @@
                 <ul class="topNavigationMenu">
                     <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
                     <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
-                  
+
                 <!-- END - MENU BOX -->
 
             </div>
@@ -114,13 +115,13 @@
                 <ul class="mobileTopNavigationMenu">
                     <a href="{% url 'baseportal:homepage' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/nitteUniversityIcon.png' %}"></span><span>HOME</span></li></a>
 
-                    
+
                 {% block muser %}
 		{% endblock %}
 
                     <a href="{% url 'baseportal:track' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/route.png' %}"></span><span>TRACK</span></li></a>
 
-                 
+
                     <a href="{% url 'baseportal:aboutus' %}"><li><span class="topResponsiveNavEmojis"><img src="{% static 'images/about-us.png' %}"></span><span>ABOUT US</span></li></a>
                 </ul>
             </div>
@@ -193,8 +194,8 @@
         <script>
             setInterval(function(){ plusSlides(1); }, 3000);
         </script>
-			
-		
-	
+
+
+
 	</body>
 </html>
