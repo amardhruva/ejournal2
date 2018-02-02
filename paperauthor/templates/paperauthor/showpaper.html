@@ -5,6 +5,13 @@
 hello
 {{paper}}
 {{paper.author}}
+{% if paper.reviewer is None %}
+  <p>Reviewer Not Assigned. Contact Admin.</p>
+{% elif paper.is_reviewed is False %}
+  <p>Paper not yet reviewed</p>
+{% else %}
+  <p>Status: {{paper.review_status}}</p>
+{% endif %}
 <p>Track id : {{paper.track_id}}</p>
 <a href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">
 {{paper.upload}}</a>
