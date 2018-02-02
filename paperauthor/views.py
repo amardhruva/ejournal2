@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import View
 from paperauthor.forms import PaperForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from paperauthor.models import Paper
 from django.core.exceptions import PermissionDenied
 from sendfile import sendfile
+from django.urls import resolve
 
 class IsAuthorMixin(UserPassesTestMixin):
     def test_func(self):
