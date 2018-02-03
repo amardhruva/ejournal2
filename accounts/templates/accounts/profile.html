@@ -16,7 +16,4 @@
 		<p>Press below link to proceed</p>
 		<a href="{% url 'paperreviewer:portal' %}">Review</a>
 	{% endif %}
-	{% if user|has_group:"editor" %}
-		<p>hello editor</p>
-	{% endif %}
 {% endblock %}
