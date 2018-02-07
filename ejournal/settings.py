@@ -142,6 +142,8 @@ SENDFILE_URL = '/protected'
 # Dev Email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+ADMIN_EMAIL='admin@example.com'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
