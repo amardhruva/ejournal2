@@ -6,12 +6,14 @@ from django.views.generic import TemplateView
 import django_filters
 from rest_framework import status, viewsets
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 import annotator
 from annotator import filters, models, serializers
 
 
 class AnnotationViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     queryset = models.Annotation.objects.all()
     serializer_class = serializers.AnnotationSerializer
     filter_class = filters.AnnotationFilterSet
