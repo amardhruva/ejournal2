@@ -42,10 +42,10 @@ class ReviewRequestView(IsReviewerMixin, LoginRequiredMixin, View):
         reviewrequest=get_object_or_404(reviewrequest, paper=paper)
         form=ReviewRequestForm(request.POST)
         if form.is_valid():
-            status=form.cleaned_data.get(status)
+            status=form.cleaned_data.get("status")
             reviewrequest.status=status
             reviewrequest.save()
-            if status==True:
+            if status==PaperReviewRequest.ACCEPTED:
                 paper.reviewer=request.user
                 paper.save()
             return redirect('paperreviewer:portal')

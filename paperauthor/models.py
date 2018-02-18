@@ -33,7 +33,7 @@ class Paper(models.Model):
     author=models.ForeignKey(User, on_delete=models.CASCADE,
                              limit_choices_to={'groups__name': "author"})
     title=models.CharField(max_length=50)
-    description=models.TextField(max_length=1000, blank=True)
+    abstract=models.TextField(max_length=1000, blank=True)
     category=models.ForeignKey(Category, on_delete=models.CASCADE)
     keywords=models.ManyToManyField(Keyword, blank=True)
     upload=models.FileField(storage=private_storage,

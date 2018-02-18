@@ -13,11 +13,14 @@ class PaperReviewRequest(models.Model):
     status = models.CharField(
         max_length=3,
         choices=REVIEW_REQUEST_STATUS_CHOICES,
+        blank=True,
         null=True,
         default=None,
         )
     reviewer=models.ForeignKey(User, on_delete=models.CASCADE)
     paper=models.ForeignKey(Paper, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.paper.title
 
 class PaperReview(models.Model):
     ACCEPTED="ACC"

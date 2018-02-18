@@ -105,7 +105,14 @@
                 <ul class="topNavigationMenu">
                     <li class="topOptionOne" title="Follow on Facebook"><div class="topNavEmojis"><img src="{% static 'images/facebook-logo.png' %}"></div></li>
                     <li class="topOptionTwo" title="Follow on Twitter"><div class="topNavEmojis"><img src="{% static 'images/twitter-logo.png' %}"></div></li>
-
+                    <li>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'accounts:profile' %}">{{user}}</a>
+                        <a href="{% url 'accounts:logout' %}">Logout</a>
+                        {% else %}
+                        <a href="{% url 'accounts:login' %}">Login</a>
+                        {% endif %}
+                    </li>
                 <!-- END - MENU BOX -->
 
             </div>

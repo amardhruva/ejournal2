@@ -9,14 +9,36 @@
 		</li>
 	{% endfor %}
 </ol>
+<p></p>
 <p>Review Requests</p>
-<ol>
-	{% for el in reviewrequests %}
-		<li>
-			<a href="{% url 'paperreviewer:reviewrequest' paperslug=el.slug %}">
-				{{el}}
-			</a>
-		</li>
+<p></p>
+<table border="1">
+	<thead>
+		<tr>
+			<th>Paper Title</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for el in reviewrequests %}
+		<tr>
+			<td>
+				{% if el.status is None %}
+				<a href="{% url 'paperreviewer:reviewrequest' paperslug=el.paper.slug %}">
+					{{el}}
+				</a>
+				{% else %}
+					{{el}}
+				{% endif %}
+			</td>
+			<td>
+				{{el.get_status_display}}
+			</td>
+		</tr>
 	{% endfor %}
+	</tbody>
+</table>
+<ol>
+
 </ol>
 {% endblock %}

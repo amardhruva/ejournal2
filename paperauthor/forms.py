@@ -5,4 +5,4 @@ from paperauthor.models import Paper
 class PaperForm(ModelForm):
     class Meta:
         model=Paper
-        fields=('title', 'description', 'category', 'upload', 'keywords')
+        fields=('title', 'abstract', 'category', 'upload', 'keywords')
