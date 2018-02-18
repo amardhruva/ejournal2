@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.template.loader import render_to_string
+
 from paperauthor.models import Paper, Category, ReviewerEmail, Keyword
 from django.core.mail import send_mail
 from django.conf import settings
@@ -8,12 +10,10 @@ import textwrap
 def send_review_selection_email(request,reviewer, paper):
     subject="You have been selected for review"
     visiturl=request.build_absolute_uri(reverse("paperreviewer:showpaper", kwargs={"paperslug":paper.slug}))
-    message=textwrap.dedent("""\
-        You have been selected as reviewer by the admin. Good luck
-        Paper Title: {}
-        Visit {}""").format(paper.title, visiturl)
-    
+    message=render_to_string("email/reviewer_selection.txt",{"paper":paper, "visiturl":visiturl})
     send_mail(subject, message, settings.ADMIN_EMAIL, [reviewer.email])
+
+
 
 # Register your models here.
 @admin.register(Paper)
