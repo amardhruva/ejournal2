@@ -35,7 +35,7 @@
 		<tr>
 			<td>
 				{% if el.status is None %}
-				<a href="{% url 'paperreviewer:reviewrequest' paperslug=el.paper.slug %}">
+				<a href="{% url 'paperreviewer:reviewrequest' paperid=el.id %}">
 					{{el}}
 				</a>
 				{% else %}

@@ -25,7 +25,7 @@ urlpatterns = [
     path('showpaper/<slug:paperslug>/',
         ShowPaperView.as_view(), name='showpaper'),
     path('annotate.html', AnnotateView.as_view(), name='annotate'),
-    path('reviewrequest/<slug:paperslug>/',
+    path('reviewrequest/<int:paperid>/',
         ReviewRequestView.as_view(), name='reviewrequest'),
     path('reviewpaper/<slug:paperslug>/', ReviewPaperView.as_view(),
          name='reviewpaper'),

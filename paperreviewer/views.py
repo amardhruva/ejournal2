@@ -25,10 +25,13 @@ class ReviewerPortalView(IsReviewerMixin, LoginRequiredMixin, View):
         return render(request, "paperreviewer/portal.html", context)
 
 class ReviewRequestView(IsReviewerMixin, LoginRequiredMixin, View):
-    def get(self, request, paperslug):
-        paper=Paper.objects.get(slug=paperslug)
-        reviewrequest=PaperReviewRequest.objects.filter(reviewer=request.user)
-        reviewrequest=get_object_or_404(reviewrequest, paper=paper)
+    def get(self, request, paperid):
+        reviewrequest=get_object_or_404(PaperReviewRequest, id=paperid)
+        if reviewrequest.reviewer != request.user:
+            raise PermissionDenied
+        if reviewrequest.status is not None:
+            raise Http404
+        paper=reviewrequest.paper
         form=ReviewRequestForm()
         context={
             "paper":paper,
@@ -36,18 +39,22 @@ class ReviewRequestView(IsReviewerMixin, LoginRequiredMixin, View):
             "form":form,
         }
         return render(request, "paperreviewer/reviewrequest.html", context)
-    def post(self, request, paperslug):
-        paper=Paper.objects.get(slug=paperslug)
-        reviewrequest=PaperReviewRequest.objects.filter(reviewer=request.user)
-        reviewrequest=get_object_or_404(reviewrequest, paper=paper)
+    def post(self, request, paperid):
+        reviewrequest=get_object_or_404(PaperReviewRequest, id=paperid)
+        if reviewrequest.reviewer != request.user:
+            raise PermissionDenied
+        if reviewrequest.status is not None:
+            raise Http404
+        paper=reviewrequest.paper
         form=ReviewRequestForm(request.POST)
         if form.is_valid():
             status=form.cleaned_data.get("status")
-            reviewrequest.status=status
-            reviewrequest.save()
             if status==PaperReviewRequest.ACCEPTED:
+                PaperReviewRequest.objects.filter(paper=paper).update(status=PaperReviewRequest.REJECTED)
                 paper.reviewer=request.user
                 paper.save()
+            reviewrequest.status=status
+            reviewrequest.save()
             return redirect('paperreviewer:portal')
         context={
             "paper":paper,

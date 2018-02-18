@@ -19,12 +19,14 @@ Resubmission: {{paper.is_resubmission}}
 <a href="{% url 'paperauthor:downloadpaper' paperslug=paper.slug %}">
   {{paper.upload}}
 </a>
-<a href="{% url 'paperauthor:downloadsuggestedcorrections' paperslug=paper.slug %}">
-  Suggested Correction
-</a>
-<a href="{% url 'paperauthor:downloadperformedcorrections' paperslug=paper.slug %}">
-  Performed Correction
-</a>
+{% if paper.is_resubmission %}
+  <a href="{% url 'paperauthor:downloadsuggestedcorrections' paperslug=paper.slug %}">
+    Suggested Correction
+  </a>
+  <a href="{% url 'paperauthor:downloadperformedcorrections' paperslug=paper.slug %}">
+    Performed Correction
+  </a>
+{% endif %}
 {% if paper.is_resubmittable %}
   <a href="{% url 'paperauthor:resubmitpaper' paperslug=paper.slug %}">Resubmit</a>
 {% endif %}

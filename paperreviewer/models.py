@@ -20,7 +20,6 @@ class PaperReviewRequest(models.Model):
     )
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'groups__name': "reviewer"})
     paper = models.ForeignKey(Paper, on_delete=models.CASCADE, limit_choices_to={'reviewer': None})
-
     def __str__(self):
         return self.paper.title
 
