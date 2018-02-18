@@ -6,9 +6,18 @@
 <p></p>
 <p><h1>{{paper}}</h1></p>
 <p>
-<a href="{% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">
-	Download PDF
-</a>
+	<a href="{% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">
+		Download PDF
+	</a>
+	{% if paper.is_resubmission %}
+		<a href="{% url 'paperreviewer:downloadsuggestedcorrections' paperslug=paper.slug %}">
+		  Suggested Correction
+		</a>
+		<a href="{% url 'paperreviewer:downloadperformedcorrections' paperslug=paper.slug %}">
+		  Performed Correction
+		</a>
+	{% endif %}
+
 </p>
 <p></p>
 <p>

@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.urls.conf import path
-from paperauthor.views import AuthorPortalView, AddPaperView, ShowPaperView,\
-    DownloadPaperView, AnnotateView
+from paperauthor.views import AuthorPortalView, AddPaperView, ShowPaperView, \
+    DownloadPaperView, AnnotateView, ResubmitPaperView, DownloadSuggestedCorrectionsView, \
+    DownloadPerformedCorrectionsView
 
 app_name='paperauthor'
 
@@ -24,7 +25,13 @@ urlpatterns = [
     path('addpaper/', AddPaperView.as_view(), name='addpaper'),
     path('showpaper/<slug:paperslug>/',
         ShowPaperView.as_view(), name='showpaper'),
+    path('resubmitpaper/<slug:paperslug>/',
+        ResubmitPaperView.as_view(), name='resubmitpaper'),
     path('downloadpaper/<slug:paperslug>.pdf',
         DownloadPaperView.as_view(), name='downloadpaper'),
     path('annotate.html', AnnotateView.as_view(), name='annotate'),
+    path('downloadsuggestedcorrections/<slug:paperslug>.pdf',
+        DownloadSuggestedCorrectionsView.as_view(), name='downloadsuggestedcorrections'),
+    path('downloadperformedcorrections/<slug:paperslug>.pdf',
+        DownloadPerformedCorrectionsView.as_view(), name='downloadperformedcorrections'),
 ]

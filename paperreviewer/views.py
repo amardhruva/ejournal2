@@ -96,6 +96,20 @@ class DownloadPaperView(IsReviewerMixin, LoginRequiredMixin, View):
             raise PermissionDenied
         return sendfile(request,  paper.upload.path, attachment=True)
 
+class DownloadSuggestedCorrectionsView(IsReviewerMixin, LoginRequiredMixin, View):
+    def get(self, request, paperslug):
+        paper=Paper.objects.get(slug=paperslug)
+        if paper.reviewer != request.user:
+            raise PermissionDenied
+        return sendfile(request,  paper.paperresubmission.suggested_corrections.path, attachment=True)
+
+class DownloadPerformedCorrectionsView(IsReviewerMixin, LoginRequiredMixin, View):
+    def get(self, request, paperslug):
+        paper=Paper.objects.get(slug=paperslug)
+        if paper.reviewer != request.user:
+            raise PermissionDenied
+        return sendfile(request,  paper.paperresubmission.performed_corrections.path, attachment=True)
+
 class AnnotateView(IsReviewerMixin, LoginRequiredMixin, View):
     def get(self, request):
         uri=request.GET.get('file','')
@@ -103,3 +117,5 @@ class AnnotateView(IsReviewerMixin, LoginRequiredMixin, View):
         paperslug=a.kwargs["paperslug"]
         paper=get_object_or_404(Paper,slug=paperslug)
         return render(request, "annotate/viewer.html", {"paper":paper})
+
+

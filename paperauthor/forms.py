@@ -7,11 +7,14 @@ class PaperForm(ModelForm):
         model = Paper
         fields = ('title', 'abstract', 'category', 'upload', 'keywords')
 
-class PaperResubmissionForm(PaperForm):
+class PaperResubmissionForm(ModelForm):
+    class Meta:
+        model = Paper
+        fields = ('title', 'abstract', 'upload')
     def __init__(self, *args, **kwargs):
         super(PaperResubmissionForm, self).__init__(*args,**kwargs)
         self.fields["title"].disabled=True
-        self.fields["category"].disabled=True
+        #self.fields["category"].disabled=True
 
 class ResubmissionForm(ModelForm):
     class Meta:

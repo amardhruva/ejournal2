@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.urls.conf import path
-from paperreviewer.views import ReviewerPortalView, ShowPaperView,\
-    DownloadPaperView, ReviewPaperView, ReviewRequestView, AnnotateView
+from paperreviewer.views import ReviewerPortalView, ShowPaperView, \
+    DownloadPaperView, ReviewPaperView, ReviewRequestView, AnnotateView, DownloadSuggestedCorrectionsView, \
+    DownloadPerformedCorrectionsView
 
 app_name='paperreviewer'
 
@@ -23,11 +24,15 @@ urlpatterns = [
     path('portal/', ReviewerPortalView.as_view(), name='portal'),
     path('showpaper/<slug:paperslug>/',
         ShowPaperView.as_view(), name='showpaper'),
-    path('downloadpaper/<slug:paperslug>.pdf',
-        DownloadPaperView.as_view(), name='downloadpaper'),
     path('annotate.html', AnnotateView.as_view(), name='annotate'),
     path('reviewrequest/<slug:paperslug>/',
         ReviewRequestView.as_view(), name='reviewrequest'),
     path('reviewpaper/<slug:paperslug>/', ReviewPaperView.as_view(),
          name='reviewpaper'),
+    path('downloadpaper/<slug:paperslug>.pdf',
+        DownloadPaperView.as_view(), name='downloadpaper'),
+    path('downloadsuggestedcorrections/<slug:paperslug>.pdf',
+        DownloadSuggestedCorrectionsView.as_view(), name='downloadsuggestedcorrections'),
+    path('downloadperformedcorrections/<slug:paperslug>.pdf',
+        DownloadPerformedCorrectionsView.as_view(), name='downloadperformedcorrections'),
 ]

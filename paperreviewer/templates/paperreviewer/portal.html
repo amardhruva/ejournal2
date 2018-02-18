@@ -9,12 +9,14 @@
 	</thead>
     <tbody>
 	{% for el in papers %}
+    <tr>
 		<td>
 			<a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">
 				{{el}}
 			</a>
 		</td>
         <td>{{el.review_status}}</td>
+    </tr>
 	{% endfor %}
     </tbody>
 </table>
