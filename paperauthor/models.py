@@ -50,5 +50,14 @@ class Paper(models.Model):
         return self.paperreview.get_review_status_display()
     def is_reviewed(self):
         return hasattr(self, "paperreview")
+
     def __str__(self):
         return self.title
+
+class PaperResubmission(models.Model):
+    paper=models.OneToOneField(Paper, on_delete=models.CASCADE)
+    original_paper=models.ForeignKey(Paper, on_delete=models.CASCADE, related_name='resubmissions_set')
+    suggested_corrections=models.FileField(storage=private_storage,
+                             validators=[FileExtensionValidator(["pdf"])])
+    performed_corrections=models.FileField(storage=private_storage,
+                             validators=[FileExtensionValidator(["pdf"])])
