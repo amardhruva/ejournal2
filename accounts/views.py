@@ -15,7 +15,7 @@ class RegisterView(View):
 
     def post(self, request):
         form=RegistrationForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             user=form.save(commit=False)
             user.is_active=False
             user.save()
