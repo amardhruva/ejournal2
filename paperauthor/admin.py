@@ -11,7 +11,7 @@ def send_review_selection_email(request,reviewer, paper):
     subject="You have been selected for review"
     visiturl=request.build_absolute_uri(reverse("paperreviewer:showpaper", kwargs={"paperslug":paper.slug}))
     message=render_to_string("email/reviewer_selection.txt",{"paper":paper, "visiturl":visiturl})
-    send_mail(subject, message, settings.ADMIN_EMAIL, [reviewer.email])git
+    send_mail(subject, message, settings.ADMIN_EMAIL, [reviewer.email])
 
 
 

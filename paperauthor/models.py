@@ -45,6 +45,7 @@ class Paper(models.Model):
                                  related_name="reviewpaper")
     slug=AutoSlugField(populate_from="title", unique=True)
     track_id = models.UUIDField(unique=True, default=uuid.uuid4)
+    review_complete = models.BooleanField(default=False)
     def review_status(self):
         return self.paperreview.get_review_status_display()
     def is_reviewed(self):

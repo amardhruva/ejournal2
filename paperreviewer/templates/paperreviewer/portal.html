@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-<ol>
+<table border="1">
+	<thead>
+	    <tr>
+            <th>Paper Title</th>
+            <th>Review Status</th>
+        </tr>
+	</thead>
+    <tbody>
 	{% for el in papers %}
-		<li>
+		<td>
 			<a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">
 				{{el}}
 			</a>
-		</li>
+		</td>
+        <td>{{el.review_status}}</td>
 	{% endfor %}
-</ol>
+    </tbody>
+</table>
 <p></p>
 <p>Review Requests</p>
 <p></p>

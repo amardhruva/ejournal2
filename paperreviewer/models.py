@@ -42,5 +42,9 @@ class PaperReview(models.Model):
         )
     comments_to_author=models.TextField(blank=True, null=True, default=None)
     comments_to_editor=models.TextField(blank=True, null=True, default=None)
+    final_comments_to_author=models.TextField(blank=True, null=True, default=None)
+    def review_complete(self):
+        return self.paper.review_complete
+    review_complete.boolean=True
     def __str__(self):
         return self.paper.title

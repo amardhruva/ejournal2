@@ -7,7 +7,7 @@ hello
 {{paper.author}}
 {% if paper.reviewer is None %}
   <p>Reviewer Not Assigned. Contact Admin.</p>
-{% elif paper.is_reviewed is False %}
+{% elif paper.review_complete is False %}
   <p>Paper not yet reviewed</p>
 {% else %}
   <p>Status: {{paper.review_status}}</p>
