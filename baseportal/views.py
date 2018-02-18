@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -9,7 +10,8 @@ from baseportal.models import PublishedJournal
 class HomePageView(View):
     def get(self, request):
         journals=PublishedJournal.objects.all()
-        return render(request, "baseportal/homepage.html", {"journals":journals})
+        authors=User.objects.filter(groups__name='author')
+        return render(request, "baseportal/homepage.html", {"journals":journals, "authors":authors})
 
 class SearchJournal(View):
     def get(self, request):

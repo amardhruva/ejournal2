@@ -36,7 +36,6 @@
                
                 <a href="{% url 'accounts:login' %}"><li class="leftOptionThree"><span class="leftNavEmojis"><img src="{% static 'images/login.png' %}"></span><span>LOGIN</span></li></a>
 {% endblock %}
- </script>
   
 	{% block content %}
 
@@ -75,36 +74,16 @@
             <div class="sliderHeading sliderHeadingOne">RECENT JOURNALS</div>
             <!-- START - SLIDER ONE -->
             <ul class="sliderOne slider dragscroll" style="cursor: grab; cursor : -o-grab; cursor : -moz-grab; cursor : -webkit-grab;">
+                {% for el in journals %}
                 <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
+                    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
+                        <div><img src="{{el.preview_image.url}}" alt="book Image" class="verticalSlidersImg"></div>
+                        <div>{{el.name}}</div>
+                        <div>{{el.published_date}}</div>
+                    </a>
                 </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
-                <li class="card">
-                    <div><img src="{% static 'images/ff.png' %}" alt="book Image" class="verticalSlidersImg"></div>
-                    <div>Name</div>
-                    <div>Author</div>
-                </li>
+                {% endfor %}
+
             </ul>
             <!-- END - SLIDER ONE -->
 
@@ -246,9 +225,8 @@
             <!-- START - COUNTER -->
             <ul class="mcounter">
                 <h1 class="mcounterHeader" title="Counter">TOTAL</h1>
-                <li>Types: 34544</li>
-                <li>Authors: 5454</li>
-                <li>E-Journals: 4545</li>
+                <li>Authors: {{authors.count}}</li>
+                <li>E-Journals: {{journals.count}}</li>
             </ul>
             <!-- END - COUNTER -->
 	{% endblock %}
