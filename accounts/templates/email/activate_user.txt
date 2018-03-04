@@ -1,0 +1,7 @@
+Dear {{user.username}}. You have beed activated.
+{% if user|has_group:"author" %}
+Submit New Paper here {{submiturl}}
+{% endif %}
+{% if user|has_group:"reviewer" %}
+Review Here {{reviewurl}}
+{% endif %}
