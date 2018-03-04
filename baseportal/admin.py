@@ -19,8 +19,8 @@ def send_activated_email(request, user):
     subject = "Your application has been accepted"
     authorurl = request.build_absolute_uri(reverse("paperauthor:addpaper"))
     reviewurl = request.build_absolute_uri(reverse("paperreviewer:portal"))
-    message = render_to_string("email/reviewer_selection.txt", {"user": user, "authorurl": authorurl, "reviewurl",
-                               reviewurl})
+    message = render_to_string("email/activate_user.txt", {"user": user, "authorurl": authorurl, "reviewurl":
+        reviewurl})
     send_mail(subject, message, settings.ADMIN_EMAIL, [user.email])
 
 
@@ -31,6 +31,8 @@ class MyUserAdmin(UserAdmin):
 
     def activate_user(self, request, queryset):
         queryset.update(is_active=True)
+        for user in queryset:
+            send_activated_email(request,user)
 
     activate_user.short_description = "Activate selected Users"
 

@@ -1,3 +1,4 @@
+{% load has_group %}
 Dear {{user.username}}. You have beed activated.
 {% if user|has_group:"author" %}
 Submit New Paper here {{submiturl}}

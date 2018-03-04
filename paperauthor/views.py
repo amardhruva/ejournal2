@@ -1,12 +1,16 @@
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.forms import model_to_dict
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
 from django.views.generic.base import View
 from paperauthor.forms import PaperForm, PaperResubmissionForm, ResubmissionForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from paperauthor.models import Paper
 from django.core.exceptions import PermissionDenied
 from sendfile import sendfile
-from django.urls import resolve
+from django.urls import resolve, reverse
 
 from paperreviewer.models import PaperReview
 
@@ -15,6 +19,14 @@ class IsAuthorMixin(UserPassesTestMixin):
     def test_func(self):
         user = self.request.user
         return user.groups.filter(name='author').exists()
+
+
+def send_add_paper_email(request, paper):
+    subject = "Paper has been added"
+    visiturl = request.build_absolute_uri(reverse("admin:paperauthor_paper_change", args=[paper.id]))
+    message = render_to_string("email/addpaper.txt", {"paper": paper, "visiturl": visiturl})
+    editor_email = User.objects.get(is_superuser=True).email
+    send_mail(subject, message, settings.ADMIN_EMAIL, [editor_email])
 
 
 # Create your views here.
@@ -38,12 +50,14 @@ class AddPaperView(IsAuthorMixin, LoginRequiredMixin, View):
             paper = form.save(commit=False)
             paper.author = request.user
             paper.save()
+            send_add_paper_email(request, paper)
             return redirect('paperauthor:portal')
         return render(request, "paperauthor/addpaper.html", {"form": form})
 
 
 class ResubmitPaperView(IsAuthorMixin, LoginRequiredMixin, View):
-    resubmit_allow=[PaperReview.ACCEPTED_WITH_MINOR_CORRECTION, PaperReview.ACCEPTED_WITH_MAJOR_CORRECTION]
+    resubmit_allow = [PaperReview.ACCEPTED_WITH_MINOR_CORRECTION, PaperReview.ACCEPTED_WITH_MAJOR_CORRECTION]
+
     def get(self, request, paperslug):
         paper = Paper.objects.get(slug=paperslug)
         if (paper.author != request.user) or not paper.is_resubmittable():
@@ -61,7 +75,7 @@ class ResubmitPaperView(IsAuthorMixin, LoginRequiredMixin, View):
             raise PermissionDenied
         paperinitial = model_to_dict(paper, fields=('title', 'abstract', 'category'))
         form = [
-            PaperResubmissionForm(request.POST,request.FILES, initial=paperinitial),
+            PaperResubmissionForm(request.POST, request.FILES, initial=paperinitial),
             ResubmissionForm(request.POST, request.FILES)
         ]
         if form[0].is_valid() and form[1].is_valid():
