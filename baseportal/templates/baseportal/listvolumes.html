@@ -1,0 +1,6 @@
+{% for volume in volumes %}
+    <a href ="{% url 'baseportal:showvolume' volumeid=volume.id %}">{{volume}}</a>
+    {% for journal in volume.publishedjournal_set.all %}
+        <a href="{% url 'baseportal:showjournal' journalslug=journal.slug %}">{{journal}}</a>
+    {% endfor %}
+{% endfor %}

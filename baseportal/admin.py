@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
 
-from baseportal.models import PublishedJournal
+from baseportal.models import PublishedJournal, Volume
 
 # Register your models here.
 
@@ -32,7 +32,7 @@ class MyUserAdmin(UserAdmin):
     def activate_user(self, request, queryset):
         queryset.update(is_active=True)
         for user in queryset:
-            send_activated_email(request,user)
+            send_activated_email(request, user)
 
     activate_user.short_description = "Activate selected Users"
 
@@ -40,6 +40,17 @@ class MyUserAdmin(UserAdmin):
         queryset.update(is_active=False)
 
     deactivate_user.short_description = "Deactivate selected Users"
+
+
+class PublishedJournalInline(admin.StackedInline):
+    model = PublishedJournal
+    extra = 0
+
+
+@admin.register(Volume)
+class VolumeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'published_date')
+    inlines = [PublishedJournalInline]
 
 
 @admin.register(PublishedJournal)

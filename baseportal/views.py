@@ -3,7 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from paperauthor.models import Paper
-from baseportal.models import PublishedJournal
+from baseportal.models import PublishedJournal, Volume
+
 
 # Create your views here.
 
@@ -12,6 +13,16 @@ class HomePageView(View):
         journals=PublishedJournal.objects.all()
         authors=User.objects.filter(groups__name='author')
         return render(request, "baseportal/homepage.html", {"journals":journals, "authors":authors})
+
+class ListVolumeView(View):
+    def get(self, request):
+        volumes=Volume.objects.all()
+        return render(request, "baseportal/listvolumes.html", {"volumes":volumes})
+
+class ShowVolumeView(View):
+    def get(self, request, volumeid):
+        volume=Volume.objects.get(id=volumeid)
+        return render(request, "baseportal/showvolume.html", {"volume":volume})
 
 class SearchJournal(View):
     def get(self, request):
