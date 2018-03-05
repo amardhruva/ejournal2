@@ -22,7 +22,7 @@ class PublishedJournal(models.Model):
     volume = models.ForeignKey(Volume, on_delete=models.SET_NULL, null=True)
     def published_date(self):
         if self.volume is None:
-            return timezone.today()
+            return ""
         return self.volume.published_date
 
     def __str__(self):
