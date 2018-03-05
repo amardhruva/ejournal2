@@ -1,14 +1,25 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block styles %}
+  <link rel="stylesheet" href={% static 'style/searchResultBoxStyle.css' %}>
+{% endblock %}
+	{% block content %}
+<div class="searchResultBox">
+    <p class="searchResultBoxTitle">Search Results {{keyword}}</p>
+    <div class="searchResultBoxBody">
+        <ul class="resultsList">
 
-
-<h1>Results for {{keyword}}</h1>
-{% if results %}
-  {% for el in results %}
-  <p>
-    <a href="{% url 'baseportal:showjournal' journalslug=el.slug %}">
-      {{el.name}}
-    </a>
-  </p>
-  {% endfor %}
-{% else %}
-  No results
-{% endif %}
+              {% if results %}
+                {% for el in results %}
+                <li class="card-x">
+                    <div><a href="{% url 'baseportal:showjournal' journalslug=el.slug %}"><img src="{{el.preview_image.url}}" alt="book Image" class="verticalSlidersImg">  </a></div>
+                    <div>  {{el.name}}</div>
+                    <div>Author</div>
+                </li>
+                {% endfor %}
+              {% else %}
+                 <h2> No results</h2>
+              {% endif %}
+          </ul>
+        </div>
+    </div>              {% endblock %}

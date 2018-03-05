@@ -1,19 +1,117 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load has_group %}
 
 {% block content %}
-	<p>hello {{user.username}}</p>
-	{% if user.is_superuser %}
-		<p>Press below link to proceed</p>
-		<a href="{% url 'admin:index' %}">Admin</a>
-	{% endif %}
-	{% if user|has_group:"author" %}
-		<p>Press below link to proceed</p>
-		<a href="{% url 'paperauthor:portal' %}">Author</a>
-	{% endif %}
-	{% if user|has_group:"reviewer" %}
-		<p>Press below link to proceed</p>
-		<a href="{% url 'paperreviewer:portal' %}">Review</a>
-	{% endif %}
+  <div class="inside">
+  <!-- START - REGISTER FORM-->
+  <div class="profileContentBox">
+      <form action="#" method="post">
+          <p class="profileContentBoxTitle">Hello! <span class="loginnedUser">{{user.username}}</span></p>
+          <table cellspacing="10">
+              <tr>
+                  <div class="profileData">
+                  <td>
+                      <label class="profileContentBoxLabel" for="#">First Name: </label>
+                  </td>
+                  <td>
+                      <input type="text" name="#" class="textboxOne" disabled>
+                  </td>
+              </div>
+              </tr>
+
+
+              <tr>
+                  <div class="profileData">
+                      <td>
+                          <label class="profileContentBoxLabel" for="#">Last Name: </label>
+                      </td>
+                      <td>
+                          <input type="text" name="#" class="textboxOne" disabled>
+                      </td>
+                  </div>
+              </tr>
+
+              <tr>
+                  <div class="profileData">
+                      <td>
+                          <label class="profileContentBoxLabel" for="#">Email: </label>
+                      </td>
+                      <td>
+                          <input type="email" name="#" class="textboxOne" disabled>
+                      </td>
+                  </div>
+              </tr>
+
+              <tr>
+                  <div class="profileData">
+                      <td>
+                          <label class="profileContentBoxLabel" for="#">Phone: </label>
+                      </td>
+                      <td>
+                          <input type="text" name="#" class="textboxOne" disabled>
+                      </td>
+                      <td></td>
+                      {% if user.is_superuser %}
+                      <td>
+                        <a class="buttonX" style="margin-left:60px" href="{% url 'admin:index' %}">Admin Portal</a>
+                      </td>
+                      {% endif %}
+                      {% if user|has_group:"author" %}
+                      <td>
+                        <a class="buttonX" style="margin-left:60px" href="{% url 'paperauthor:portal' %}">Author Portal</a>
+                      </td>
+                      {% endif %}
+                      {% if user|has_group:"reviewer" %}
+                      <td>
+                        <a class="buttonX" style="margin-left:60px" href="{% url 'paperreviewer:portal' %}">Reviewer Portal</a>
+                      </td>
+                      {% endif %}
+
+
+
+                  </div>
+              </tr>
+
+              <tr>
+                  <div class="profileData">
+                      <td>
+                          <label class="profileContentBoxLabel" for="#">Password: </label>
+                      </td>
+                      <td>
+                          <input type="password" name="#" class="textboxOne" value="********" disabled>
+                      </td>
+                      <td class="edit">
+                          <a href="{% url 'accounts:password_change' %}" class="edit"><img src="{% static 'images/editPencil.png' %}">Change</a>
+                      </td>
+                  </div>
+              </tr>
+              <tr>
+              <div class="profileData">
+                  <td>
+                      <label class="profileContentBoxLabel" for="#">College / Institute: </label>
+                  </td>
+                  <td>
+                      <input type="text" name="#" class="textboxOne" disabled>
+                  </td>
+              </div>
+              </tr>
+
+              <tr>
+              <div class="profileData">
+                  <td>
+                      <label class="profileContentBoxLabel" for="#">Type: </label>
+                  </td>
+                  <td>
+                      <input type="text" name="#" class="textboxOne" disabled>
+                  </td>
+              </div>
+              </tr>
+          </table>
+      </form>
+  </div>
+  <!-- END - REGISTER FORM-->
+
+
+</div>
 {% endblock %}

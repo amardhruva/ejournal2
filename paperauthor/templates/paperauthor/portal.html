@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
-
-
-{% block sidebar %}
-	<p>Appears in only this page<p>
-{% endblock %}
+{% load static %}
 
 {% block content %}
-<p>hello {{user.username}}</p>
-<p>hello author</p>
-<a href="{% url 'paperauthor:addpaper' %}">Add</a>
-<ol>
-	{% for el in papers %}
-		<li>
-			<a href="{% url 'paperauthor:showpaper' paperslug=el.slug %}">
-				{{el}}
-			</a>
-		</li>
-	{% endfor %}
-</ol>
+  <div class="inside">
+		<h1 class="welcomeName">Hello {{user.username}}</h1>
+    <h5 class="welcomeName"> Role : {{user.user_type}}</h5><br>
+		<a class="button" style="float:left; height:100%;" href="{% url 'paperauthor:addpaper' %}">New Paper <img src="{% static 'images/editPencil.png' %}"></a>
+    <br>    <br>    <br>    <br>
+
+      <table cellspacing="25">
+
+    			<thead> <h2><b>Previously Submitted Papers </b></h2></thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Track</th>
+            <th></th>
+          </tr>
+				{% for el in papers %}
+					<tr>
+            <td> {{el.title}}</td>
+            <td>12 Jan 2018</td>
+            <td class="button"><a style="text-decoration:none; height:100%; color:white;"  href="{% url 'baseportal:track' %}?id={{el.track_id}}">	<img src="{% static 'images/route.png' %}" width="20px" height"30px"> Track</a></td>
+						<td class="button"><a style="text-decoration:none;height:100%; color:white;"  href="{% url 'paperauthor:showpaper' paperslug=el.slug %}">	Get Details</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+</div>
+
 {% endblock %}

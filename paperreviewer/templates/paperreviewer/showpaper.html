@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 
 {% block content %}
-<p></p>
+  <div class="inside">
+
 <p><h1>{{paper}}</h1></p>
 <p>
 	<a href="{% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">
@@ -22,7 +23,7 @@
 <p></p>
 <p>
 	{% if paper.is_reviewed %}
-		Paper already revieved as {{paper.review_status}} 
+		Paper already revieved as {{paper.review_status}}
 	{% else %}
 	<a href="{% url 'paperreviewer:annotate' %}?file={% url 'paperreviewer:downloadpaper' paperslug=paper.slug %}">Annotate</a>
 	<a href="{% url 'paperreviewer:reviewpaper' paperslug=paper.slug %}">
@@ -30,4 +31,5 @@
 	</a>
 	{% endif %}
 </p>
+    </div>
 {% endblock %}

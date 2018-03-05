@@ -2,9 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="inside">
 	<form method="post">
 		{% csrf_token %}
 		{{form|crispy}}
-		<input type="submit" name=""/>
+		<input class="button" type="submit" name=""/>
 	</form>
+</div>
 {% endblock %}

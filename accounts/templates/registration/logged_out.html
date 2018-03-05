@@ -1,2 +1,7 @@
+{% extends  'base.html' %}
 {% load static %}
-Thank you for stopping by, to continue -> Go to  <a href="{% url 'baseportal:homepage' %}"><span>HOME</span></a>
+{% block content %}
+			<div class="inside">
+				Thank you for stopping by, to continue -> Go to  <a href="{% url 'baseportal:homepage' %}"><span>HOME</span></a>
+			</div>
+{% endblock %}

@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 <!-- START - SUBMIT FORM-->
-<div class="submitContentBox">
+<div class="inside">
 <form method="post" enctype='multipart/form-data'>
-	{% csrf_token %}
-	{{ form|crispy }}
-	<input type="submit">
-	<!--
 						<p class="submitContentBoxTitle">Fill in Details</p>
 						{% csrf_token %}
 						<table cellspacing="10">
@@ -26,10 +23,10 @@
 							<tr>
 								<div class="submitData">
 									<td>
-										<label class="submitContentBoxLabel" for="#">Description: </label>
+										<label class="submitContentBoxLabel" for="#">Abstract: </label>
 									</td>
 									<td>
-										{% render_field form.description class="textboxOne" rows="5" %}{{ form.description.errors }}
+										{% render_field form.abstract class="textboxOne" rows="5" %}{{ form.description.errors }}
 									</td>
 								</div>
 							</tr>
@@ -40,12 +37,6 @@
 									</td>
 									<td>
 										{% render_field form.category class="comboBoxOne submitCategory" %}{{ form.category.errors }}
-										 <select class="comboBoxOne submitCategory">
-											<option value="technology">Technology</option>
-											<option value="business">Business</option>
-											<option value="medical">Medical</option>
-										</select>
-
 									</td>
 								</div>
 							</tr>
@@ -66,7 +57,6 @@
 									</td>
 									<td>
 										{% render_field form.keywords rows="5" class="textboxOne" %}{{ form.keywords.errors }}
-										<textarea ></textarea>
 									</td>
 								</div>
 							</tr>
@@ -82,7 +72,7 @@
 								</div>
 							</tr>
 						</table>
-				</div>-->
+				</div>
+			</form>
 				<!-- END - SUBMIT FORM-->
-</form>
 {% endblock %}

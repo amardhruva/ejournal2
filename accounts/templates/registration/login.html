@@ -35,21 +35,20 @@
             <form method="post">
                 <div class="upperPart">
                   {% csrf_token %}
-                  <div>{{form.non_field_errors}}</div>
+                  <div style="color:red;">{{form.non_field_errors}}</div>
                     <div class="usernameLabel label">{{ form.username.label }}</div>
                     <div class="inputUsername">{% render_field form.username class="textboxOne" size="100" %}{{ form.username.errors }}</div>
                     <div class="passwordLabel label">{{ form.password.label }}</div>
                     <div class="inputPassword">{% render_field form.password class="textboxOne" size="100" %}{{ form.password.errors }}</div>
                     <div class="forgotPasswordAndSignUp">
-                        <a href="#" class="forgotPassowrd">Forgot Password ?</a>
+                        <a href="{% url 'accounts:password_reset' %}" class="forgotPassowrd">Forgot Password ?</a>
                         <a href="{% url 'accounts:register' %}" class="signUp">Get New account!</a>
                     </div>
                 </div>
                 <br>
                 <div class="lowerPart">
-                    <input name="#" type="submit" class="button" value="Login">
-                    <br>
-                    <input name="#" type="reset" class="button" value="Reset">
+                    <input name="#" type="submit" class="button" style="width:100%;" value="Login">
+                    <input name="#" type="reset" class="button" style="width:100%;" value="Reset">
                 </div>
             </form>
         </div>

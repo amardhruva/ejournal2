@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<p>Do You want to review this Paper</p>
+<div class="inside">
+<p>Do You want to review Paper : {{paper}}</p>
 <form method="post">
   {% csrf_token %}
   {{ form }}
   <button type="submit" name="button" class="btn btn-primary">Submit</button>
 </form>
+</div>
 {% endblock %}

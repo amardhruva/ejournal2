@@ -1,7 +1,12 @@
+{% extends  'base.html' %}
 {% load static %}
+{% block content %}
 
-Successfully registred!
-Please check the email to activate or contact admin!
+  <div class="inside">
+    Successfully registred!
+    Please check the email to activate or contact admin!
 
-to continue -> Go to  <a href="{% url 'baseportal:homepage' %}"><span>HOME</span></a>
+    to continue -> Go to  <a href="{% url 'baseportal:homepage' %}"><span>HOME</span></a>
 
+  </div>
+{% endblock %}

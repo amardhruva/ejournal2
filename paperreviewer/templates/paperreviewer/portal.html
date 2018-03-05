@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
+{%block style %}
+<style>table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+{% endblock %}
 {% block content %}
-<table border="1">
-	<thead>
+<div class="inside">
+<table cellspacing="20">
+	<thead><h2 class="welcomeName"><u>Paper under Review</u></h2>
 	    <tr>
             <th>Paper Title</th>
             <th>Review Status</th>
@@ -10,21 +30,23 @@
     <tbody>
 	{% for el in papers %}
     <tr>
-		<td>
-			<a href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">
-				{{el}}
-			</a>
-		</td>
+      <td> {{el.title}}</td>
+
         <td>{{el.review_status}}</td>
+        <td class="button">
+    			<a class="fix" href="{% url 'paperreviewer:showpaper' paperslug=el.slug %}">
+    				Review
+    			</a>
+    		</td>
     </tr>
 	{% endfor %}
     </tbody>
 </table>
+
+
 <p></p>
-<p>Review Requests</p>
-<p></p>
-<table border="1">
-	<thead>
+<table cellspacing="20">
+	<thead><h2 class="welcomeName"><u>Review Requests</u></h2>
 		<tr>
 			<th>Paper Title</th>
 			<th>Status</th>
@@ -33,9 +55,9 @@
 	<tbody>
 		{% for el in reviewrequests %}
 		<tr>
-			<td>
+			<td class="button">
 				{% if el.status is None %}
-				<a href="{% url 'paperreviewer:reviewrequest' paperid=el.id %}">
+				<a class="fix" href="{% url 'paperreviewer:reviewrequest' paperid=el.id %}">
 					{{el}}
 				</a>
 				{% else %}
@@ -49,7 +71,5 @@
 	{% endfor %}
 	</tbody>
 </table>
-<ol>
-
-</ol>
+</div>
 {% endblock %}
